@@ -2,14 +2,14 @@
 ## Overview
 sendIT is a courier service that helps users deliver parcels to different destinations.Also provides courier quotes based on weight categories.
 
-### Technologies
+## Technologies
 Angular
 NodeJs
 
-#### Database
+## Database
 MsSQL
 
-#### Functionalities
+## Functionalities
 Allows users to create account and log in
 Allows admin to create a parcel delivery order
 Allows users to see the details of a delivery order(group parcel sent by user andparcel sent to the user differently)
