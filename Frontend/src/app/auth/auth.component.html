@@ -1,0 +1,110 @@
+<div class="container">
+  <div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="logo-sect">
+        <img src="../../assets/sendit.png" alt="SendIT" />
+      </div>
+      <div class="new" *ngIf="!isLoginMode">
+        <h4>New here?</h4>
+        <h6>Signing up is easy. It only takes a few steps</h6>
+      </div>
+      <div *ngIf="isLoginMode" class="login">
+        <h3>Access your account</h3>
+      </div>
+      <input
+        *ngIf="!isLoginMode"
+        type="text"
+        name="username"
+        ngModel
+        placeholder="Username"
+        required
+      />
+      <input
+        type="text"
+        name="email"
+        ngModel
+        placeholder="Email"
+        required
+        email
+      />
+      <span></span>
+      <select ngModel *ngIf="!isLoginMode" name="county" id="" required="">
+        <option value="">County</option>
+        <option value="baringo">Baringo</option>
+        <option value="bomet">Bomet</option>
+        <option value="bungoma">Bungoma</option>
+        <option value="busia">Busia</option>
+        <option value="elgeyo marakwet">Elgeyo Marakwet</option>
+        <option value="embu">Embu</option>
+        <option value="garissa">Garissa</option>
+        <option value="homa bay">Homa Bay</option>
+        <option value="isiolo">Isiolo</option>
+        <option value="kajiado">Kajiado</option>
+        <option value="kakamega">Kakamega</option>
+        <option value="kericho">Kericho</option>
+        <option value="kiambu">Kiambu</option>
+        <option value="kilifi">Kilifi</option>
+        <option value="kirinyaga">Kirinyaga</option>
+        <option value="kisii">Kisii</option>
+        <option value="kisumu">Kisumu</option>
+        <option value="kitui">Kitui</option>
+        <option value="kwale">Kwale</option>
+        <option value="laikipia">Laikipia</option>
+        <option value="lamu">Lamu</option>
+        <option value="machakos">Machakos</option>
+        <option value="makueni">Makueni</option>
+        <option value="mandera">Mandera</option>
+        <option value="meru">Meru</option>
+        <option value="migori">Migori</option>
+        <option value="marsabit">Marsabit</option>
+        <option value="mombasa">Mombasa</option>
+        <option value="muranga">Muranga</option>
+        <option value="nairobi">Nairobi</option>
+        <option value="nakuru">Nakuru</option>
+        <option value="nandi">Nandi</option>
+        <option value="narok">Narok</option>
+        <option value="nyamira">Nyamira</option>
+        <option value="nyandarua">Nyandarua</option>
+        <option value="nyeri">Nyeri</option>
+        <option value="samburu">Samburu</option>
+        <option value="siaya">Siaya</option>
+        <option value="taita taveta">Taita Taveta</option>
+        <option value="tana river">Tana River</option>
+        <option value="tharaka nithi">Tharaka Nithi</option>
+        <option value="trans nzoia">Trans Nzoia</option>
+        <option value="turkana">Turkana</option>
+        <option value="uasin gishu">Uasin Gishu</option>
+        <option value="vihiga">Vihiga</option>
+        <option value="wajir">Wajir</option>
+        <option value="pokot">West Pokot</option>
+      </select>
+      <input
+        type="password"
+        name="password"
+        ngModel
+        placeholder="Password"
+        required
+      />
+      <span></span>
+      <label *ngIf="!isLoginMode" class="terms" for="">
+        <input type="checkbox" name="" id="checkme" />
+        I agree to all Terms & Conditions
+      </label>
+      <button type="submit" [disabled]="!f.valid">
+        {{ isLoginMode ? "Login" : "SIGN UP" }}
+      </button>
+      <p>
+        {{
+          !isLoginMode
+            ? "Already have an account?"
+            : "You dont have an account?"
+        }}
+        <a
+          routerLink="{{ !isLoginMode ? 'login' : 'register' }}"
+          (click)="onSwitchMode()"
+          >{{ isLoginMode ? "Sign up" : "Login" }}</a
+        >
+      </p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,196 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+h2,
+h3,
+a {
+	color: #34495e;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
+.logo {
+	margin: 0;
+	font-size: 1.45em;
+}
+
+.main-nav {
+	margin-top: 5px;
+
+}
+.logo a,
+.main-nav p {
+	padding: 10px 15px;
+	/* text-transform: uppercase; */
+	text-align: center;
+	display: flex;
+	align-items: center;
+	color: white;
+}
+.main-nav p img{
+	margin-right: 0.8rem;
+	 height: 1.9rem;
+    width: 1.9rem;
+	border-radius: 50%;
+}
+img{
+	height: 2.3rem;
+
+}
+
+.main-nav p {
+	color: #fff;
+	font-size: .99em;
+	cursor: pointer;
+}
+
+.main-nav a:hover {
+	color: skyblue;
+}
+
+
+
+.header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	background-color: #191c24;
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	display: flex;
+	align-items: center;
+	
+}
+.hamberger{
+	display: none;
+}
+
+button{
+    background-color: #00d25b;
+    height: 2rem;
+    border-radius: 2px;
+    width: 12rem;
+    border: none;
+    color: white;
+	cursor: pointer;
+}
+button:hover{
+	opacity: .6;
+}
+input{
+    background-color: transparent;
+    height: 2.5rem;
+    color: #4c5169;
+    border-radius: 5px;
+	  padding-left: 1rem;
+    /* text-align: center; */
+    width: 26rem;
+    border:1px solid #2c2e33;
+    font-size: 15px;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+hr{
+	color: #2c2e33;
+}
+.dropdown-content {
+  position: absolute;
+  background-color: #191c24;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  /* color: black; */
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+.header{
+    display: flex;
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    
+	button{
+		display: none;
+	}
+	input{
+		display: none;
+	}
+	/* .dropdown{
+		display: none;
+	} */
+	
+	.hamberger{
+		display: inline;
+		margin-left: 14rem;
+		transform: translateY(28%);
+
+	}
+	.drop,.drop img,span{
+		display: none;
+	}
+	.logo a img{
+		height: 2.0rem;
+	}
+}
+
+/* @media (min-width: 769px) {
+    
+	.header,
+	.main-nav {
+		display: flex;
+	}
+	.header {
+		flex-direction: column;
+		align-items: center;
+    
+		width: 80%;
+		margin: 0 auto;
+		max-width: 1150px;
+	}
+	
+} */
+
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+}

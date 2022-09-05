@@ -1,0 +1,103 @@
+.noparcels{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-items: center;
+    background-color: #9d1969;
+    background-color: linear-gradient(to bottom right, #9d1969,#d0145a);
+    padding: 0rem 1rem;
+    width: 80vw;
+    height: 5.5rem;
+    margin: 1.5rem;
+    border-radius: 7px;
+    color: #fff;
+    background-image:url(../../../assets/getstarted.png);
+    background-position: left;
+    background-repeat: no-repeat;
+
+}
+.btn{
+    height: 2.3rem;
+    width: 5.5rem;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:hover{
+    opacity: .6;
+}
+.parc{
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.parcels {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 1.5rem;
+}
+.parcel {
+  background-color: #191c24;
+  border-radius: 5px;
+  height: 135px;
+  margin-right: 1.5rem;
+  padding-left: 0.5rem;
+  color: #6c7293;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.parcel:last-child {
+  margin-right: 0;
+}
+
+.parcelname{
+    color: #fff;
+    /* margin-bottom: 0.rem; */
+}
+button{
+    cursor: pointer;
+    height: 1.8rem;
+    width: 6rem;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    /* background-color: #16302a; */
+    
+    margin-top: 0.5rem;
+}
+button:hover{
+    opacity: .7;
+}
+.status{
+    /* text-decoration: underline; */
+    background-color: #322028;
+    color: #fc424a;
+    
+}
+.pending{
+    color: #d99206;
+    border: 1px solid #d99206;
+}
+.delivered{
+    color: #00d05a;
+    border: 1px solid #00d05a;
+}
+@media only screen and (max-width: 600px) {
+    .parcels{
+        display: block;
+    }
+    .parcel{
+        margin: 1rem 0rem;
+    }
+    .noparcels{
+        width: 85%;
+    }
+    .noparcels button{
+        width: 2rem;
+    }
+}

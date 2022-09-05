@@ -1,0 +1,16 @@
+<header class="header">
+	<h1 class="logo"><a routerLink="dashboard"><img src="../../../assets/sendit.png" alt="SENDIT"></a></h1>
+    <input type="search" placeholder="Search project">
+    <a routerLink="parcels/new"><button>+ New Parcel Delivery Order</button></a>
+    <ul class="main-nav">
+        <div class="dropdown">
+            <img class="hamberger" src="../../../assets/hamberger.png" alt="">
+            <p class="drop" (click)="dropDown()"><img src="../../assets/images.png" alt=""><span>Amos Mwongela <i class="fa fa-caret-down"></i> </span> </p>
+            <div class="drop" *ngIf="shownow" class="dropdown-content" id="myDropdown">
+                <a routerLink="settings">Settings</a>
+                <hr>
+                <a routerLink="/auth">Logout</a>
+            </div>
+        </div> 
+    </ul>
+</header> 
