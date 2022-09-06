@@ -8,10 +8,12 @@ import { NavigationBarComponent } from '../shared/navigation-bar/navigation-bar.
 import { PickupsComponent } from './pickups/pickups.component';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { NewParcelComponent } from './new-parcel/new-parcel.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
 
 const adminRoutes: Routes = [
   {
-    path: 'admin/dashboard',
+    path: '',
     component: AdminComponent,
 
     children: [
@@ -21,22 +23,43 @@ const adminRoutes: Routes = [
       },
       {
         path: 'parcels',
-        component: ParcelsComponent
+        component: ParcelsComponent,
+      },
+      {
+        path: 'parcel/details',
+        component: ParcelDetailsComponent,
+      },
+      {
+        path: 'parcels/parcel/details',
+        redirectTo: 'parcel/details',
+        pathMatch: 'full',
       },
       {
         path: 'parcels/new',
-        component: NewParcelComponent
+        component: NewParcelComponent,
       },
       {
         path: 'pickups',
-        component: PickupsComponent
-      }
+        component: PickupsComponent,
+      },
     ],
   },
 ];
 @NgModule({
-  declarations: [AdminComponent,DashboardComponent,NavigationBarComponent, PickupsComponent, ParcelsComponent, NewParcelComponent],
-  imports: [CommonModule,RouterModule.forChild(adminRoutes),SharedModule],
-  // exports: [DashboardComponent],
+  declarations: [
+    AdminComponent,
+    DashboardComponent,
+    NavigationBarComponent,
+    PickupsComponent,
+    ParcelsComponent,
+    NewParcelComponent,
+    ParcelDetailsComponent,
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(adminRoutes),
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AdminModule {}

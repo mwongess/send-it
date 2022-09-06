@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parcels.component.css']
 })
 export class ParcelsComponent implements OnInit {
-
+  isdisplayMode = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onMoreDetails() {
+    this.isdisplayMode =!this.isdisplayMode 
+  }
 }

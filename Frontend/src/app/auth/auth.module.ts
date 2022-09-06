@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 const authRoutes: Routes = [
   {
-    path: 'auth',
+    path: '',
     component: AuthComponent,
   },
 ];

@@ -83,12 +83,15 @@ a{
 } */
 @media only screen and (max-width: 600px) {
     .admin{
+        display: flex;
+        flex-direction: column;
         width: 100%
     }
-    .navigation{
+    .navigation {
         display: none;
     }
     .placeholder{
-        width: 85%;
+        /* width: 100%; */
+        /* width: 85%; */
     }
 }

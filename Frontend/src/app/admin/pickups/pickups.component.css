@@ -52,10 +52,11 @@ tr:hover {
 @media only screen and (max-width: 600px) {
   .container{
     display: block;
-
+    height: auto;
   }
   .map{
     width: 100%;
+    padding: 0;
   }
   .map iframe{
     width: 100%;

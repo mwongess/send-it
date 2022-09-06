@@ -30,7 +30,6 @@
 }
 .parc{
     display: flex;
-    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -43,9 +42,9 @@
 .parcel {
   background-color: #191c24;
   border-radius: 5px;
-  height: 135px;
+  /* height: 135px; */
   margin-right: 1.5rem;
-  padding-left: 0.5rem;
+  padding: 0.5rem;
   color: #6c7293;
   display: flex;
   flex-direction: column;
@@ -57,24 +56,20 @@
 
 .parcelname{
     color: #fff;
-    /* margin-bottom: 0.rem; */
 }
 button{
     cursor: pointer;
-    height: 1.8rem;
-    width: 6rem;
+    height: 1.5rem;
+    width: 5rem;
     border: none;
     border-radius: 5px;
     background-color: transparent;
-    /* background-color: #16302a; */
-    
     margin-top: 0.5rem;
 }
 button:hover{
     opacity: .7;
 }
 .status{
-    /* text-decoration: underline; */
     background-color: #322028;
     color: #fc424a;
     
@@ -87,6 +82,27 @@ button:hover{
     color: #00d05a;
     border: 1px solid #00d05a;
 }
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.details{
+    border-radius: 0;
+    border: none;
+    background-color: #000000;
+    /* opacity: .6; */
+    background-color: #0090e7;
+    border-radius: 3px;
+    width: 7rem;
+    color: #fff;
+}
+.pmap{
+    margin-top: 1rem;
+}
+.pmap iframe{
+    height: auto;
+    width: 100%;
+}
 @media only screen and (max-width: 600px) {
     .parcels{
         display: block;
@@ -95,9 +111,21 @@ button:hover{
         margin: 1rem 0rem;
     }
     .noparcels{
-        width: 85%;
+        /* height: 3.5rem; */
+        width: 88%;
+        /* margin: 0 1.5rem; */
+
     }
     .noparcels button{
-        width: 2rem;
+        /* width: 2rem; */
+        /* background-size: 0.3rem; */
+        /* display: none; */
+
+    }
+    .parc h3{
+        display: none;
+    }
+    .btn{
+        display: none;
     }
 }

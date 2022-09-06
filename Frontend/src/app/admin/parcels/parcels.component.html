@@ -1,33 +1,51 @@
-<div ngClass="noparcels">
+<!-- <div ngClass="noparcels">
     <div ngClass="parc">
-        <h3>When no parcels!</h3>
+        <h3>No parcels!</h3>
     </div>
     <a routerLink=""><button ngClass="btn">Get started</button></a>
-</div>
+</div> -->
 <div class="parcels">
   <div class="parcel">
-    <h3 class="parcelname">Name</h3>
+    <h3 class="parcelname">Parcel 1</h3>
     <p>Owner</p>
     <p>Destination</p>
-    <button class="pending">Shipping</button>
+    <div class="buttons">
+      <button class="pending">Shipping</button>
+      <a routerLink="parcel/details"><button class="details">See more details</button></a>
+    </div>
+    
+  
   </div>
   <div class="parcel">
-    <h3 class="parcelname">Name</h3>
+    <h3 class="parcelname">Parcel 2</h3>
     <p>Owner</p>
     <p>Destination</p>
-    <button class="delivered">Delivered</button>
+      <div class="buttons">
+        <button class="delivered">Delivered</button>
+      <button (click)="onMoreDetails()" class="details">See more details</button>
+    </div>
+    
   </div>
   <div class="parcel">
-    <h3 class="parcelname">Name</h3>
+    <h3 class="parcelname">Parcel 3</h3>
     <p>Owner</p>
     <p>Destination</p>
-    <button class="delivered">Delivered</button>
+     <div class="buttons">
+      <button class="delivered">Delivered</button>
+      <button (click)="onMoreDetails()" class="details">See more details</button>
+    </div>
+  
   </div>
   <div class="parcel">
-    <h3 class="parcelname">Name</h3>
+    <h3 class="parcelname">Parcel 4 </h3>
     <p>Owner</p>
     <p>Destination</p>
-    <button class="delivered">Delivered</button>
+    <div class="buttons">
+      <button class="delivered">Delivered</button>
+      <button (click)="onMoreDetails()" class="details">See more details</button>
+    </div>
+    
+     
   </div>
   
   

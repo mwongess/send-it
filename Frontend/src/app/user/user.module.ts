@@ -4,7 +4,7 @@ import { UserComponent } from './user.component';
 import {RouterModule, Routes } from '@angular/router';
 
 const userRoutes: Routes = [
- { path: 'user', component: UserComponent}
+  { path: '', component: UserComponent },
 ]
 
 @NgModule({

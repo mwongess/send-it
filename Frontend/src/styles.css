@@ -7,3 +7,6 @@
 body{
     font-family: 'Anek Telugu', sans-serif;
 }
+button{
+    cursor: pointer;
+}
