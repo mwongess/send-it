@@ -1,6 +1,5 @@
 <img src="./banner/sendit.png">
 
-## Overview
 sendIT is a courier service that helps users deliver parcels to different destinations.Also provides courier quotes based on weight categories.
 
 ## Technologies
