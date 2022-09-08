@@ -1,23 +1,36 @@
 <div class="moredetails">
-  <div class="headpart">
+  <form  [formGroup]="parcelAllDetails">
+    <div class="headpart">
     <div class="inputsect">
       <label for="">Parcel Name</label>
-      <input type="text" disabled />
+      <input 
+      type="text" 
+      readonly
+       />
     </div>
     <div class="inputsect">
       <label for="">From</label>
-      <input type="text" disabled />
+      <input 
+      type="text" 
+      readonly
+       />
     </div>
     <div class="inputsect">
       <label for="">Tracking Id</label>
-      <input type="text" disabled />
+      <input 
+      type="text" 
+      readonly
+      />
       <a>
-        <button>Go back</button>
+        <button type="button">Go back</button>
       </a>
     </div>
     <div class="inputsect">
       <label for="">Pick point</label>
-      <input type="text" disabled />
+      <input 
+      type="text"
+      readonly
+       />
     </div>
   </div>
   <div class="map">
@@ -31,4 +44,6 @@
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
   </div>
+  </form>
+  
 </div>

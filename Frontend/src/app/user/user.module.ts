@@ -4,6 +4,7 @@ import { UserComponent } from './user.component';
 import {RouterModule, Routes } from '@angular/router';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const userRoutes: Routes = [
   {
@@ -30,7 +31,7 @@ const userRoutes: Routes = [
     ParcelDetailsComponent
   ],
   imports: [
-    CommonModule,RouterModule.forChild(userRoutes)
+    CommonModule,RouterModule.forChild(userRoutes),ReactiveFormsModule
   ]
 })
 export class UserModule { }

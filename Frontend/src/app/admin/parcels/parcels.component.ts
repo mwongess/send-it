@@ -9,11 +9,13 @@ export class ParcelsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    //querry db for all parcels
+
   }
   onMoreDetails() {
   }
 
   seeMore(id: string) {
-    // query the db using this id
+    // query the db for any data related to this id
   }
 }

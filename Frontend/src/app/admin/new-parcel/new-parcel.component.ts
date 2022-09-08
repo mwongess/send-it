@@ -18,6 +18,7 @@ export class NewParcelComponent implements OnInit {
     })
   }
   onSubmit() {
+    // create a partial parcel
     console.log(this.newParcelForm)
   }
 
