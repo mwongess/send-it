@@ -6,7 +6,6 @@
 }
 .form {
   background-color: #191c24;
-  border-radius: 5px;
 }
 form {
   display: flex;
@@ -27,16 +26,11 @@ input {
   color: #6c7293;
   margin-bottom: 1.3rem;
   border: 1px solid #2c2e33;
-  /* border-radius: 5px; */
   padding: 0.5rem;
 }
-/* input:focus{
-    border:1px solid #00d059
-} */
+
 select {
   padding: 0.5rem;
-  /* border-radius: 5px; */
-
   border: 1px solid #2c2e33;
   color: #6c7293;
   margin-bottom: 1.3rem;
@@ -49,12 +43,9 @@ button {
   height: 2rem;
   color: #fff;
   background-color: #0090e7;
-  /* margin-bottom: 1rem; */
 }
 .clients {
   background-color: #191c24;
-  margin-left: 1.5rem;
-  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;

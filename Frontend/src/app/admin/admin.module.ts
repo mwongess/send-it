@@ -10,6 +10,7 @@ import { ParcelsComponent } from './parcels/parcels.component';
 import { NewParcelComponent } from './new-parcel/new-parcel.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const adminRoutes: Routes = [
   {
@@ -23,7 +24,7 @@ const adminRoutes: Routes = [
       },
       {
         path: 'parcels',
-        component: ParcelsComponent,
+        component: OrdersComponent,
       },
       {
         path: 'parcel/details',
@@ -54,6 +55,7 @@ const adminRoutes: Routes = [
     ParcelsComponent,
     NewParcelComponent,
     ParcelDetailsComponent,
+    OrdersComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,36 @@
+{
+    "parcels": [
+      {
+        "name": "Keyboard",
+        "id": "1",
+        "destination": "Kerugoya",
+        "from": "Amos",
+        "to": "Evans",
+        "status": "Delivered"
+      },
+      {
+        "name": "Mouse",
+        "id": "2",
+        "destination": "Sagana",
+        "from": "Acrinnima",
+        "to": "Erick",
+        "status": "Delivered"
+      },
+      {
+        "name": "Ram",
+        "id": "3",
+        "destination": "Kagio",
+        "from": "Ivan",
+        "to": "Duke",
+        "status": "Shipping"
+      },
+      {
+        "name": "Mouse pad",
+        "id": "4",
+        "destination": "Kutus",
+        "from": "Simon",
+        "to": "Prudence",
+        "status": "Delivered"
+      }
+    ]
+}

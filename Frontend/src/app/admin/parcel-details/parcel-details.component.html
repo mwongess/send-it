@@ -27,14 +27,14 @@
         <label for="">From</label>
         <select name="from" id=""
         formControlName="from">
-          <option value="Amos">Amos</option>
+          <option value="Amos" *ngFor="let parcel of Users">{{parcel.from}}</option>
         </select>
         <!-- <input type="text" value="From">  -->
 
         <label for="">To</label>
         <select name="" id=""
         formControlName="to">
-          <option value="Me">Me</option>
+          <option value="Me" *ngFor="let arr of Users">{{arr.to}}</option>
         </select>
         <div class="lastsect">
           <select name="status" id="status"

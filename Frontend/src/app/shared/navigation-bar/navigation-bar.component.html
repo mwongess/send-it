@@ -1,6 +1,6 @@
 <header class="header">
 	<h1 class="logo"><a routerLink="dashboard"><img src="../../../assets/sendit.png" alt="SENDIT"></a></h1>
-    <input type="search" placeholder="Search project">
+    <input type="text" placeholder="Search project" [(ngModel)]="filteredStatus">
     <a routerLink="parcels/new"><button>+ New Parcel Delivery Order</button></a>
     <ul class="main-nav">
         <div class="dropdown">

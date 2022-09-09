@@ -5,6 +5,7 @@ import {RouterModule, Routes } from '@angular/router';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 const userRoutes: Routes = [
   {
@@ -25,13 +26,12 @@ const userRoutes: Routes = [
 ]
 
 @NgModule({
-  declarations: [
-    UserComponent,
-    ParcelsComponent,
-    ParcelDetailsComponent
-  ],
+  declarations: [UserComponent, ParcelsComponent, ParcelDetailsComponent],
   imports: [
-    CommonModule,RouterModule.forChild(userRoutes),ReactiveFormsModule
-  ]
+    CommonModule,
+    RouterModule.forChild(userRoutes),
+    ReactiveFormsModule,
+    SharedModule
+  ],
 })
-export class UserModule { }
+export class UserModule {}

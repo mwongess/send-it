@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ParcelsService } from 'src/app/shared/services/parcels.service';
 
 interface IParcel{
   name: string
@@ -15,6 +16,9 @@ interface IParcel{
   styleUrls: ['./parcel-details.component.css'],
 })
 export class ParcelDetailsComponent implements OnInit {
+  arr!: any;
+  Users!: any;
+  myOrder!: any;
   updateParcelForm!: FormGroup;
   Parcel: IParcel = {
     name: '',
@@ -24,16 +28,23 @@ export class ParcelDetailsComponent implements OnInit {
     to: '',
     status:  ''
   }
-  constructor() {}
+  constructor(private parcel: ParcelsService,private users: ParcelsService) {}
 
   ngOnInit(): void {
+    // get all users
+    this.Users = this.users.allparcels
+    
     // get data to be populated in the inputs
-    this.Parcel.name="Amos"
-    this.Parcel.id="Amos"
-    this.Parcel.destination="Amos"
-    this.Parcel.from="Amos"
-    this.Parcel.to="Me"
-    this.Parcel.status="Delivered"
+
+    this.myOrder = this.parcel.getOrder()
+    console.log(this.myOrder)
+    this.arr = this.myOrder[0]
+    this.Parcel.name= this.arr.name
+    this.Parcel.id= this.arr.id
+    this.Parcel.destination=this.arr.destination
+    this.Parcel.from=this.arr.from
+    this.Parcel.status= this.arr.status
+    this.Parcel.to=this.arr.to
     // populate above data in the form inputs
     this.updateParcelForm = new FormGroup({
       'name': new FormControl(this.Parcel.name),

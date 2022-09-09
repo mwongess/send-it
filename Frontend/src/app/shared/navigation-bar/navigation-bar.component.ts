@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParcelsService } from '../services/parcels.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
   shownow = false;
-  constructor() {}
+  filteredStatus: string = ''
+  constructor(private status: ParcelsService) {
 
-  ngOnInit(): void {}
+    console.log(this.filteredStatus)
+    this.status.filteredStatus = this.filteredStatus
+  }
+
+  ngOnInit(): void {
+  }
   dropDown() {
     this.shownow = !this.shownow;
   }
