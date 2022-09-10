@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../shared/services/auth.service';
 interface Inewuser {
   Name?: string;
   Country: string;
@@ -28,7 +30,7 @@ export class AuthComponent implements OnInit {
     Email: '',
     Password: '',
   };
-  constructor() {}
+  constructor(private router: Router,private authService: AuthService) {}
 
   ngOnInit(): void {}
   onSwitchMode() {
@@ -47,7 +49,14 @@ export class AuthComponent implements OnInit {
 
     // check mode
     if (this.isLoginMode) {
-      console.log(this.user);
+      if (this.user.Email == "amos@gmail.com" && this.user.Password == "1to34567") {
+        this.authService.login()
+        // console.log(this.user);
+      } else {
+        
+        this.router.navigate(['user/parcels']);
+      }
+
     } else {
       console.log(this.newuser);
       form.reset();

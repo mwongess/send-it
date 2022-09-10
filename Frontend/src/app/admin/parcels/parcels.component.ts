@@ -16,13 +16,11 @@ export class ParcelsComponent implements OnInit {
 
   ngOnInit(): void {
     //querry db for all parcels
-    this.filteredStatus = this.status.filteredStatus
-    this.Parcels = this.parcels.allparcels;
+    
   }
   onMoreDetails() {}
 
   seeMore(id: string) {
     // query the db for any data related to this id
-    this.parcels.onseeMore(id);
   }
 }

@@ -32,5 +32,18 @@
         "to": "Prudence",
         "status": "Delivered"
       }
+    ],
+    "users": [
+      {
+        "name": "Amos",
+        "email": "a@gmail.com",
+        "role": "Admin"
+      },
+      {
+        "name": "Mwongela",
+        "email": "b@gmail.com",
+        "role": "User"
+      }
     ]
+
 }

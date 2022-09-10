@@ -24,11 +24,11 @@ const initialState: IParcelState = {
 export const getParcelsFeaturesState = createFeatureSelector<IParcelState>('parcel')
 
 export const getParcels = createSelector(
-  getParcelsFeaturesState, state=> state.parcels
+  getParcelsFeaturesState, (state)=> state.parcels
 )
 export const getParcelId = createSelector(
   getParcelsFeaturesState,
-  state=>state.parcelId
+  (state)=>state.parcelId
 )
 export const getParcel = createSelector(
   getParcelsFeaturesState,

@@ -10,9 +10,6 @@ export class NavigationBarComponent implements OnInit {
   shownow = false;
   filteredStatus: string = ''
   constructor(private status: ParcelsService) {
-
-    console.log(this.filteredStatus)
-    this.status.filteredStatus = this.filteredStatus
   }
 
   ngOnInit(): void {

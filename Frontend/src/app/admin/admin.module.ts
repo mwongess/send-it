@@ -11,12 +11,17 @@ import { NewParcelComponent } from './new-parcel/new-parcel.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
 import { OrdersComponent } from './orders/orders.component';
+import { ParcelEffectsService } from '../shared/state/parcel-effects.service';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { ParcelReducer } from '../shared/state/parcel.reducer';
+import { AuthGuard } from '../shared/services/auth-guard.service';
 
 const adminRoutes: Routes = [
   {
     path: '',
     component: AdminComponent,
-
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -62,6 +67,10 @@ const adminRoutes: Routes = [
     RouterModule.forChild(adminRoutes),
     SharedModule,
     ReactiveFormsModule,
+    StoreModule.forFeature(
+      'parcel', ParcelReducer
+    ),
+    EffectsModule.forFeature([ParcelEffectsService]),
   ],
 })
 export class AdminModule {}

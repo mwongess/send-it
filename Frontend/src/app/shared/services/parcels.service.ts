@@ -19,15 +19,16 @@ export class ParcelsService {
   // getOrder() {
   //   return this.myorder;
   // }
-  gettAllParcels(): Observable<Iparcel[]> {
-    return this.http.get<Iparcel[]>('http://localhost:3000/parcels');
-  }
   newParcel(parcel: Iparcel): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(
       `${this.url}/parcels/`,
       parcel
-    );
+      );
   }
+  
+    gettAllParcels(): Observable<Iparcel[]> {
+      return this.http.get<Iparcel[]>('http://localhost:3000/parcels');
+    }
 
   deleteParcel(id: string | number): Observable<{ message: string }> {
     return this.http.delete<{ message: string }>(
