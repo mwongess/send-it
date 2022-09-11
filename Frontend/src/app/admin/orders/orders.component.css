@@ -4,7 +4,7 @@
   /* height: 10rem; */
   margin: 1.5rem;
   color: white;
-  
+
   border-radius: 5px;
 }
 .start {
@@ -21,6 +21,42 @@
   font-size: 15px;
   background-color: transparent;
 }
+.noparcels {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  background-color: #9d1969;
+  background-color: linear-gradient(to bottom right, #9d1969, #d0145a);
+  padding: 0rem 1rem;
+  width: 80vw;
+  height: 5.5rem;
+  /* margin-top: 1rem; */
+  border-radius: 7px;
+  color: #fff;
+  background-image: url(../../../assets/getstarted.png);
+  background-position: left;
+  background-repeat: no-repeat;
+}
+.parc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  float: right;
+  height: 2.3rem;
+  width: 5.5rem;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.6;
+}
 .clients {
   font-size: 1.2rem;
   font-weight: bold;
@@ -31,7 +67,7 @@ table {
 }
 th {
   font-size: 0.9rem;
-  width: 21.5%;
+  width: 23%;
 }
 
 th,
@@ -41,22 +77,21 @@ td {
   text-align: left;
   border-bottom: 1px solid #2c2e33;
 }
-th{
-    font-size: 16px;
+th {
+  font-size: 16px;
 }
-tr:hover{
+tr:hover {
   opacity: 0.6;
   color: #000000;
   cursor: pointer;
   /* background-color: #fff; */
   color: white !important;
-
 }
-tr:nth-child(1):hover{
-    opacity: 1;
-    color: initial;
-    background-color: initial;
-    cursor: initial;
+tr:nth-child(1):hover {
+  opacity: 1;
+  color: initial;
+  background-color: initial;
+  cursor: initial;
 }
 img {
   height: 1.9rem;
@@ -100,4 +135,10 @@ img {
 .pending {
   color: #ffab00;
   border: 1px solid #ffab00;
+}
+@media only screen and (max-width: 600px){
+  .table{
+    /* width: 100%; */
+    overflow-x: scroll;
+  }
 }

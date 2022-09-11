@@ -32,17 +32,21 @@ const adminRoutes: Routes = [
         component: OrdersComponent,
       },
       {
-        path: 'parcel/details',
+        path: 'parcel/details/:id',
         component: ParcelDetailsComponent,
       },
       {
-        path: 'parcels/parcel/details',
-        redirectTo: 'parcel/details',
+        path: 'parcels/parcel/details/:id',
+        redirectTo: 'parcel/details/:id',
         pathMatch: 'full',
       },
       {
         path: 'parcels/new',
         component: NewParcelComponent,
+      },
+      {
+        path: 'parcels/parcels/new',
+        redirectTo: 'parcels/new',
       },
       {
         path: 'pickups',

@@ -11,14 +11,19 @@ export class ParcelsService {
 
   constructor(private router: Router, private http: HttpClient) {}
   url = 'http://localhost:3000';
-   // onseeMore(id: string | number) {
-  //   this.myorder = this.allParcels.filter((order) => order.id == id);
-  //   this.getOrder();
-  //   this.router.navigate(['admin/dashboard/parcel/details']);
-  // }
-  // getOrder() {
-  //   return this.myorder;
-  // }
+
+   onseeMore(id: string | number) {
+      this.gettAllParcels().subscribe(parcels => {
+      this.myorder = parcels.filter((parc) => parc.id == id);
+      alert(this.myorder)
+      this.getOrder();
+        this.router.navigate(['admin/dashboard/parcel/details']);
+        return this.myorder
+      });
+  }
+  getOrder() {
+    return this.myorder;
+  }
   newParcel(parcel: Iparcel): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(
       `${this.url}/parcels/`,

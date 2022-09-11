@@ -3,28 +3,28 @@
         <h3>No parcels!</h3>
     </div>
     <a routerLink="parcels/new"><button ngClass="btn">Get started</button></a>
-</div> --> -->
+</div>  -->
 <!-- routerLink="parcel/details"
 <!-- <div class="parcel" *ngFor="let parcel of Parcels | filter: filteredStatus"> -->
 
 <div class="parcels">
   <div class="parcel">
-    <h3 class="parcelname all">56</h3>
+    <h3 class="parcelname all">{{totalOrders}}</h3>
     <h4 >Total Orders</h4>
     <p></p>
 </div>
 <div class="parcel">
-  <h3 class="parcelname received">84</h3>
+  <h3 class="parcelname received">{{receivedOrders}}</h3>
   <h4 class="">Received orders</h4>
   <p></p>
 </div>
 <div class="parcel">
-  <h3 class="parcelname  pending-orders">38</h3>
+  <h3 class="parcelname  pending-orders">{{pendingOrders}}</h3>
   <h4 class="">Pending orders</h4>
   <p></p>
 </div>
 <div class="parcel">
-  <h3 class="parcelname cancelled">34</h3>
+  <h3 class="parcelname cancelled">{{cancelledOrders}}</h3>
   <h4 class="">Cancelled orders</h4>
   <p></p>
 </div>

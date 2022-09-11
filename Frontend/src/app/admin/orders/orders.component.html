@@ -3,7 +3,9 @@
         <p class="clients">Parcel Orders</p>
         <input type="search" placeholder="Search order by status" [(ngModel)]="filterString">
     </div>
+  
 <table>
+   
   <tr>
     <th>Parcel Name</th>
     <th>From</th>
@@ -11,36 +13,23 @@
     <th>Destination</th>
     <th>Status</th>
   </tr>
-  <tr *ngFor="let order of parcels$ |async | filter: filterString ">
-    <td class="photo"><img src="../../../assets/images.png" alt="">Mouse</td>
-    <td>Amos</td>
-    <td></td>
-    <td>none</td>
-    <td><p class="completed status">Delivered</p></td>
-  </tr>
-  <!-- <tr>
-    <td class="photo"><img src="../../../assets/images.png" alt="">Keyboard</td>
-    <td>Amos</td>
-    <td></td>
-    <td>None</td>
-    <td ><p class="notassigned status"><span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>Cancelled</p></td>
-  </tr>
-  <tr>
-    <td class="photo"><img src="../../../assets/images.png" alt="">Ram</td>
-    <td>Amos</td>
-    <td>Amos</td>
-    <td>None</td>
-    <td ><p class="pending status"><span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>Shipping</p></td>
-  </tr> -->
-
-  <!-- <tr *ngFor="let user of clients.Users">
-    <td><input type="checkbox"></td>
-    <td class="photo"><img src="../../../assets/images.png" alt="photo"><span>{{user.Name}}</span></td>
-    <td>{{user.Email}}</td>
-    <td>{{user.isAssigned? 'none' : 'Loading...'}}</td>
-    <td><p [ngClass]="'status notassigned'">{{!user.isAssigned? 'Not assigned': 'Pending'}}</p></td>
-
-  </tr> -->
  
+  <tr *ngFor="let order of parcels$|async | filter: filterString " (click)="trOnclick(order.id)">
+    <td class="photo"><img src="../../../assets/images.png" alt="">{{order.name}}</td>
+    <td>{{order.from}}</td>
+    <td>{{order.to}}</td>
+    <td>{{order.destination}}</td>
+    <td><p [ngClass]="{'status': order.status,
+      'completed': order.status === 'Delivered',
+    'pending': order.status==='Shipping',
+  'notassigned': order.status == 'Cancelled'}">{{order.status}}</p></td>
+  </tr>
+
 </table>
+   <div ngClass="noparcels" *ngIf="parcels.length > 0">
+    <div ngClass="parc">
+        <h3>There are no orders!!</h3>
+    </div>
+    <a routerLink="parcels/new"><button ngClass="btn">Get started</button></a>
+    </div>
 </div>

@@ -10,9 +10,9 @@
             <select 
             name="" 
             id=""
-            formControlName="owner"
+            formControlName="from"
             >
-                <option value="">Owner</option>
+                <option [value]="newParcelForm.value.from">Owner</option>
             </select>
             <input 
             type="text" 
@@ -26,3 +26,4 @@
         <img src="../../../assets/parcel.png" alt="">
     </div>
 </div>
+<app-orders></app-orders>

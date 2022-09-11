@@ -12,20 +12,32 @@ import { getParcels } from 'src/app/shared/state/parcel.reducer';
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
+  parcels:any
   parcels$ = this.store.select(getParcels)
   filterString: string = ''
   constructor(
     private router: Router,
     private parcel: ParcelsService,
-    private fb: FormBuilder,
     private store: Store,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.store.dispatch(Actions.LOAD_PARCELS());
+     this.parcels$.subscribe(data => {
+      this.parcels =data
+    })
   }
 
+  trOnclick(id: string| number) {
+    // alert(id)
+    // this.parcel.onseeMore(id)
+     this.store.dispatch(Actions.SELECTED_PARCEL_ID({ id }));
+     this.router.navigate([`/admin/dashboard/parcel/details/${id}`], {
+       relativeTo: this.route,
+     });
+
+  }
 
   // loadOrders() {
     

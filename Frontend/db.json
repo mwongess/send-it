@@ -1,49 +1,76 @@
 {
-    "parcels": [
-      {
-        "name": "Keyboard",
-        "id": "1",
-        "destination": "Kerugoya",
-        "from": "Amos",
-        "to": "Evans",
-        "status": "Delivered"
-      },
-      {
-        "name": "Mouse",
-        "id": "2",
-        "destination": "Sagana",
-        "from": "Acrinnima",
-        "to": "Erick",
-        "status": "Delivered"
-      },
-      {
-        "name": "Ram",
-        "id": "3",
-        "destination": "Kagio",
-        "from": "Ivan",
-        "to": "Duke",
-        "status": "Shipping"
-      },
-      {
-        "name": "Mouse pad",
-        "id": "4",
-        "destination": "Kutus",
-        "from": "Simon",
-        "to": "Prudence",
-        "status": "Delivered"
-      }
-    ],
-    "users": [
-      {
-        "name": "Amos",
-        "email": "a@gmail.com",
-        "role": "Admin"
-      },
-      {
-        "name": "Mwongela",
-        "email": "b@gmail.com",
-        "role": "User"
-      }
-    ]
-
+  "parcels": [
+    {
+      "name": "Keyboard",
+      "id": "1",
+      "destination": "Kerugoya",
+      "from": "Amos",
+      "to": "Evans",
+      "status": "Delivered"
+    },
+    {
+      "name": "Mouse",
+      "id": "2",
+      "destination": "Sagana",
+      "from": "Acrinnima",
+      "to": "Erick",
+      "status": "Shipping"
+    },
+    {
+      "name": "Ram",
+      "id": "3",
+      "destination": "Kagio",
+      "from": "Ivan",
+      "to": "Duke",
+      "status": "Delivered"
+    },
+    {
+      "name": "Mouse pad",
+      "id": "4",
+      "destination": "Kutus",
+      "from": "Simon",
+      "to": "Prudence",
+      "status": "Cancelled"
+    },
+    {
+      "name": "Ram",
+      "id": "5",
+      "destination": "Kagumo",
+      "from": "Ivan",
+      "to": "Bree",
+      "status": "Delivered"
+    },
+    {
+      "name": "Mouse pad",
+      "id": "6",
+      "destination": "Skuta",
+      "from": "Simon",
+      "to": "Mwongela",
+      "status": "Cancelled"
+    },
+    {
+      "name": "kk",
+      "owner": null,
+      "destination": "kk",
+      "id": "hHw9U97"
+    },
+    {
+      "name": "me",
+      "from": null,
+      "destination": "kk",
+      "id": "R4uPYNv"
+    }
+  ],
+  "users": [
+    {
+      "name": "Amos",
+      "email": "a@gmail.com",
+      "role": "Admin"
+    },
+    {
+      "name": "Mwongela",
+      "email": "b@gmail.com",
+      "role": "User"
+    }
+  ]
 }

@@ -6,17 +6,9 @@
         <th>Station</th>
         <th>Rating</th>
       </tr>
-      <tr>
-        <td>Nyeri</td>
-        <td>4.5</td>
-      </tr>
-      <tr>
-        <td>Kamakwa</td>
-        <td>4.0</td>
-      </tr>
-      <tr>
-        <td>Skuta</td>
-        <td>5.0</td>
+      <tr *ngFor="let parcel of parcels$ | async">
+        <td>{{ parcel.destination }}</td>
+        <td>{{rating}}</td>
       </tr>
     </table>
   </div>

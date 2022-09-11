@@ -4,7 +4,7 @@ import { Iparcel } from '../models/parcel.model';
 // ++++++++++++++++ ID ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export const SELECTED_PARCEL_ID = createAction(
   'SELECTED_PARCEL_ORDER',
-  props<{ id: number }>()
+  props<{ id: number | string}>()
 );
 
 // +++++++++++++ Create new parcel order ++++++++++++++++++++++++++++++++++++++++++++++++
