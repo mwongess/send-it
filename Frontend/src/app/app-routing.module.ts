@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './shared/services/auth-guard.service';
 
 const routes: Routes = [
@@ -18,6 +19,15 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
+  {
+    path: 'error',
+    component: PageNotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'error',
+  },
+
 ];
 
 @NgModule({
