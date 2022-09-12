@@ -41,7 +41,9 @@ export class ParcelDetailsComponent implements OnInit {
         name: new FormControl(data?.name),
         id: new FormControl(data?.id),
         destination: new FormControl(data?.destination),
+        weight: new FormControl(null),
         from: new FormControl(data?.from),
+        price: new FormControl(null),
         to: new FormControl(data?.to),
         status: new FormControl(data?.status),
       });
