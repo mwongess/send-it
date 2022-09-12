@@ -6,15 +6,13 @@ import { ParcelsService } from 'src/app/shared/services/parcels.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as Actions from '../../shared/state/parcel.actions';
 
-
-
-interface IParcel{
-  name: string
-  id: string
-  destination: string
-  from: string
-  to: string
-  status: string
+interface IParcel {
+  name: string;
+  id: string;
+  destination: string;
+  from: string;
+  to: string;
+  status: string;
 }
 @Component({
   selector: 'app-parcel-details',
@@ -24,19 +22,8 @@ interface IParcel{
 export class ParcelDetailsComponent implements OnInit {
   parcels$ = this.store.select(getParcels);
   id!: string | number;
-  order$ = this.store.select(getParcel);
-  arr!: any;
-  Users!: any;
-  myOrder!: any;
   updateParcelForm!: FormGroup;
-  Parcel: IParcel = {
-    name: '',
-    id: '',
-    destination: '',
-    from: '',
-    to: '',
-    status: '',
-  };
+  
   constructor(
     private store: Store,
     private route: ActivatedRoute,
@@ -46,18 +33,24 @@ export class ParcelDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
-      this.id = +param['id'];
+      this.id = param['id'];
     });
     this.store.dispatch(Actions.SELECTED_PARCEL_ID({ id: this.id }));
-
-    this.updateParcelForm = new FormGroup({
-      name: new FormControl(this.Parcel.name),
-      id: new FormControl(this.Parcel.id),
-      destination: new FormControl(this.Parcel.destination),
-      from: new FormControl(this.Parcel.from),
-      to: new FormControl(this.Parcel.to),
-      status: new FormControl(this.Parcel.status),
-    });
+    this.store.select(getParcel).subscribe((data) => {
+      this.updateParcelForm = new FormGroup({
+        name: new FormControl(data?.name),
+        id: new FormControl(data?.id),
+        destination: new FormControl(data?.destination),
+        from: new FormControl(data?.from),
+        to: new FormControl(data?.to),
+        status: new FormControl(data?.status),
+      });
+    }
+      
+    
+      
+    );
+    
   }
 
   onSubmit() {

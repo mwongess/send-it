@@ -25,23 +25,17 @@
       </div>
       <div>
         <label for="">From</label>
-        <select name="from" id=""
-        formControlName="from">
-          <option value="Amos" *ngFor="let parcel of Users">{{parcel.from}}</option>
-        </select>
-        <!-- <input type="text" value="From">  -->
-
+        <input type="text" formControlName="from">
         <label for="">To</label>
-        <select name="" id=""
-        formControlName="to">
-          <option value="Me" *ngFor="let arr of Users">{{arr.to}}</option>
-        </select>
+        <input type="text" formControlName="to">
         <div class="lastsect">
           <select name="status" id="status"
           formControlName="status">
             <option value="">Status</option>
             <option value="Shipping">Shipping</option>
             <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+
           </select>
           <button type="button" class="delete">Delete</button>
           <button class="update">Update</button>

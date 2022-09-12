@@ -30,16 +30,8 @@ export class OrdersComponent implements OnInit {
   }
 
   trOnclick(id: string| number) {
-    // alert(id)
-    // this.parcel.onseeMore(id)
-     this.store.dispatch(Actions.SELECTED_PARCEL_ID({ id }));
      this.router.navigate([`/admin/dashboard/parcel/details/${id}`], {
        relativeTo: this.route,
      });
-
   }
-
-  // loadOrders() {
-    
-  // }
 }

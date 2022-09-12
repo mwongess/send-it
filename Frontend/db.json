@@ -47,18 +47,6 @@
       "from": "Simon",
       "to": "Mwongela",
       "status": "Cancelled"
-    },
-    {
-      "name": "kk",
-      "owner": null,
-      "destination": "kk",
-      "id": "hHw9U97"
-    },
-    {
-      "name": "me",
-      "from": null,
-      "destination": "kk",
-      "id": "R4uPYNv"
     }
   ],
   "users": [

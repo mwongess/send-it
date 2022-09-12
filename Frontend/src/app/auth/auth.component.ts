@@ -47,13 +47,13 @@ export class AuthComponent implements OnInit {
     this.user.Email = form.value.email;
     this.user.Password = form.value.password;
 
-    // check mode
+    // check mode +++ Sign up or sign in ++++
     if (this.isLoginMode) {
       if (this.user.Email == "amos@gmail.com" && this.user.Password == "1to34567") {
         this.authService.login()
-        // console.log(this.user);
+          this.router.navigate(['/admin/dashboard']);
       } else {
-        
+        this.authService.login()
         this.router.navigate(['user/parcels']);
       }
 
