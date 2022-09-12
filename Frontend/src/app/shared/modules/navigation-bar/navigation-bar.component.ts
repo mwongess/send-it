@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ParcelsService } from '../services/parcels.service';
+import { ParcelsService } from '../../services/parcels.service';
 
 @Component({
   selector: 'app-navigation-bar',
