@@ -1,0 +1,39 @@
+GET http://localhost:4003/orders
+
+###
+POST http://localhost:4003/orders
+Content-Type: application/json
+
+{
+    "name":"Test Product",
+    "sender":"Amos",
+    "receiver":"Amos",
+    "destination": "Keru",
+    "status":"Delivered",
+    "isDeleted": false
+}
+
+###
+
+GET http://localhost:4003/orders
+
+
+###
+
+GET http://localhost:4003/orders/354eae15-6c10-421b-9999-51e0b3d45c84
+
+
+####
+PUT http://localhost:4003/orders/update/354eae15-6c10-421b-9999-51e0b3d45c84
+Content-Type: application/json
+
+{
+    "name":"Test Order",
+    "sender":"Amos",
+    "receiver":"Amos",
+    "destination": "Keru",
+    "status":"Delivered"
+}
+
+###
+DELETE http://localhost:4003/orders/b4cd7972-4e21-4844-bbf4-4dbc5ec60b4c
