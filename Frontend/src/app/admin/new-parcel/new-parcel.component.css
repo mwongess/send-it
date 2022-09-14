@@ -1,26 +1,30 @@
 .container {
-  display: grid;
-  grid-template-columns: 2.3fr 3fr;
+  /* display: grid; */
+  /* grid-template-columns: 2.3fr 3fr; */
   margin: 1.5rem;
   border-radius: 5px;
+  /* padding: 1rem; */
 }
 .form {
   background-color: #191c24;
+  padding: 1rem;
 }
 form {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
   flex-direction: column;
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
 }
-h3{
-    color: #fff;
-    margin-bottom: 0.5rem;
+h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
-input:first-child{
-    margin-top: 1rem;
+input:last-child{
+    margin-top: 0rem;
 }
 input {
-    border: none;
+  border: none;
   height: 2.4rem;
   background-color: transparent;
   color: #6c7293;
@@ -40,27 +44,35 @@ select {
 button {
   border: none;
   border-radius: 5px;
-  height: 2rem;
+  height: 2.3rem;
   color: #fff;
   background-color: #0090e7;
 }
 .clients {
   background-color: #191c24;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
 }
-.clients img{
-    height: 15rem;
+.clients img {
+  height: 15rem;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
 }
 @media only screen and (max-width: 600px) {
-  .container{
+  .container {
     display: block;
   }
-  .clients{
+  .clients {
     margin-left: 0;
   }
-  .clients img{
+  .clients img {
     height: 10rem;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -9,7 +9,7 @@
         formControlName="name" 
         />
 
-        <label for="Id">Id</label>
+        <label for="Id">Tracking Id</label>
         <input 
         type="text" 
         formControlName="id"
@@ -32,12 +32,12 @@
         />
       </div>
       <div>
-        <label for="">From</label>
-        <input type="text" formControlName="from">
-        <label for="">To</label>
-        <input type="text" formControlName="to">
+        <label for="">Sender</label>
+        <input type="text" formControlName="sender" placeholder="email">
+        <label for="">Receiver</label>
+        <input type="text" formControlName="receiver" placeholder="email">
         <label for="">Price</label>
-        <input type="text" formControlName="price" placeholder="Price">
+        <input type="text" formControlName="price" placeholder="Price" readonly>
         <div class="lastsect">
           <select name="status" id="status"
           formControlName="status">
@@ -47,7 +47,7 @@
             <option value="Cancelled">Cancelled</option>
 
           </select>
-          <button type="button" class="delete">Delete</button>
+          <button type="button" class="delete" (click)="onDelete()">Delete</button>
           <button class="update">Update</button>
         </div>
       </div>

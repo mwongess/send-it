@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, concatMap, map, mergeMap, of } from 'rxjs';
-import { Iparcel } from '../models/parcel.model';
+// import { Iparcel } from '../models/parcel.model';
 import { ParcelsService } from '../services/parcels.service';
 import * as ParcelsActions from '../state/parcel.actions'
 @Injectable({

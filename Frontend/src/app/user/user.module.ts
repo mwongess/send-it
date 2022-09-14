@@ -10,11 +10,16 @@ import { StoreModule } from '@ngrx/store';
 import { ParcelReducer } from '../shared/state/parcel.reducer';
 import { ParcelEffectsService } from '../shared/state/parcel-effects.service';
 import { EffectsModule } from '@ngrx/effects';
+import { NavbarComponent } from './navbar/navbar.component';
+import { IntroSectionComponent } from './intro-section/intro-section.component';
 
 const userRoutes: Routes = [
   {
     path: '', component: UserComponent,
     children: [
+      {
+        path: 'dashboard', component: IntroSectionComponent
+    },
       {
       path: 'parcels', component: ParcelsComponent
     },
@@ -30,7 +35,7 @@ const userRoutes: Routes = [
 ]
 
 @NgModule({
-  declarations: [UserComponent, ParcelsComponent, ParcelDetailsComponent],
+  declarations: [UserComponent, ParcelsComponent, ParcelDetailsComponent, NavbarComponent, IntroSectionComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(userRoutes),

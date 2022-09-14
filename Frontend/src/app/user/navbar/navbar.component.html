@@ -1,0 +1,16 @@
+<header class="header">
+	<h1 class="logo"><a routerLink="dashboard"><img src="../../../assets/sendit.png" alt="SENDIT"></a></h1>
+    <input type="text" placeholder="Search order..." [(ngModel)]="filteredStatus">
+    <a routerLink="parcels/"><button>+ See My Orders</button></a>
+    <ul class="main-nav">
+        <div class="dropdown">
+            <img class="hamberger" src="../../../assets/hamberger.png" alt="">
+            <p class="drop" (click)="dropDown()"><img src="../../../../assets/amos.jpg" alt=""><span>{{user.name}} <i class="fa fa-caret-down"></i> </span> </p>
+            <div class="drop" *ngIf="shownow" class="dropdown-content" id="myDropdown">
+                <a routerLink="settings">Settings</a>
+                <hr>
+                <a routerLink="/auth">Logout</a>
+            </div>
+        </div> 
+    </ul>
+</header> 

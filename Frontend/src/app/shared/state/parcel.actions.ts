@@ -39,7 +39,7 @@ export const LOAD_PARCELS_FAIL = createAction(
 //++++++++++++++++  Delete parcels with id+++++++++++++++++++++++++
 export const DELETE_PARCEL = createAction(
   'DELETE_PARCEL',
-  props<{ id: number }>()
+  props<{ id: number|string }>()
 );
 
 export const DELETE_PARCELS_SUCCESS = createAction(

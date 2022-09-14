@@ -10,15 +10,15 @@ export class AuthService {
     return this.loggedIn
   }
 
-  login() {
+  login(role: string) {
     this.loggedIn = true;
-    // if (role === 'Admin') {
-    //   
-    // } else if (role === 'User') {
-    //   this.router.navigate(['/user/dashboard']);
-    // } else {
-    //   this.router.navigate(['/auth']);
-    // }
+    if (role === 'Admin') {
+      this.router.navigate(['/admin/dashboard']);
+    } else if (role === 'user') {
+      this.router.navigate(['user/dashboard']);
+    } else {
+      this.router.navigate(['/auth']);
+    }
   }
   logout() {
     this.loggedIn = false;
