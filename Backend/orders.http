@@ -5,11 +5,11 @@ POST http://localhost:4003/orders
 Content-Type: application/json
 
 {
-    "name":"Test Product",
+    "name":"Order 1",
     "sender":"Amos",
-    "receiver":"Amos",
+    "receiver":"Mwongela",
     "destination": "Keru",
-    "status":"Delivered",
+    "status":"Shipping",
     "isDeleted": false
 }
 
@@ -36,4 +36,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:4003/orders/b4cd7972-4e21-4844-bbf4-4dbc5ec60b4c
+DELETE http://localhost:4003/orders/68d305da-d238-4606-884b-2713ab27032f

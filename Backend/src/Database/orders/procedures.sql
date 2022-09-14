@@ -1,8 +1,8 @@
 -- CREATE NEW ORDER
-CREATE PROCEDURE newOrder(@id VARCHAR(100) , @name VARCHAR(200) , @sender VARCHAR(200),@receiver VARCHAR(200), @destination VARCHAR(200),@status VARCHAR(200),@isDeleted BIT)
+CREATE PROCEDURE newOrder(@id VARCHAR(100) , @name VARCHAR(200) , @sender VARCHAR(200),@receiver VARCHAR(200), @destination VARCHAR(200),@weight @VARCHAR(200),@price VARCHAR(200),@status VARCHAR(200),@isDeleted BIT)
 AS
 BEGIN
-INSERT INTO Orders(id,name,sender,receiver,destination,status,isDeleted )VALUES (@id,@name,@sender,@receiver,@destination,@status,@isDeleted)
+INSERT INTO Orders(id,name,sender,receiver,destination,weight,price,status,isDeleted )VALUES (@id,@name,@sender,@receiver,@destination,@status,@isDeleted)
 END
 
 -- GET ALL ORDERS

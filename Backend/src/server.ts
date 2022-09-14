@@ -1,9 +1,11 @@
 import express, { NextFunction, Request, Response,json } from 'express'
 import orouter from './Routes/order.routes'
 import urouter from './Routes/user.routes'
+import cors from "cors";
 const app= express()
 
 app.use(json())
+app.use(cors());
 // +++++++++ USERS ++++++++++++++
 app.use('/user', urouter)
 

@@ -6,6 +6,8 @@ import bcrypt from "bcrypt";
 import { UserSchema, UserSchema2 } from "../Helpers/userValidator";
 import { IUser } from "../Model/users.model";
 import jwt from "jsonwebtoken";
+import Connection from "../Helpers/db.helper";
+const db = new Connection();
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -35,15 +37,7 @@ export const newUser = async (req: ExtendedRequest, res: Response) => {
       return res.json({ error: error.details[0].message });
     }
     const hashedpassword = await bcrypt.hash(password, 10);
-    await pool
-      .request()
-      .input("id", mssql.VarChar, id)
-      .input("email", mssql.VarChar, email)
-      .input("name", mssql.VarChar, name)
-      .input("password", mssql.VarChar, hashedpassword)
-      .input('role',mssql.VarChar, role)
-      .execute("newUser");
-
+    db.exec("newUser",{id,email,name,hashedpassword,role})
     res.json({ message: "Account created successfully" });
   } catch (error) {
     res.json({ error });
@@ -60,10 +54,7 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
       return res.json({ error: error.details[0].message });
     }
     const user: IUser[] = await (
-      await pool
-        .request()
-        .input("email", mssql.VarChar, email)
-        .execute("getUser")
+      await db.exec('getUser',{email})
     ).recordset;
 
     if (!user[0]) {

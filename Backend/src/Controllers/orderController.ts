@@ -1,6 +1,6 @@
 import { Request, RequestHandler, Response } from "express";
 import { v4 as uid } from "uuid";
-import Connection from "../Helpers/db";
+import Connection from "../Helpers/db.helper";
 const db = new Connection();
 
 interface ExtendedRequest extends Request {
@@ -9,6 +9,8 @@ interface ExtendedRequest extends Request {
     sender: string;
     receiver: string
     destination: string
+    weight: string
+    price: string
     status: string
     isDeleted: string
   };
@@ -16,9 +18,10 @@ interface ExtendedRequest extends Request {
 export const newOrder = async (req: ExtendedRequest, res: Response) => {
   try {
     const id = uid();
-    const isDeleted:string = "true"
-    const { name, sender, receiver,destination,status} = req.body;
-    db.exec("newOrder",{id, name,sender,receiver,destination,status,isDeleted});
+    const isDeleted: string = "false"
+    const status: string =  'Shipping'
+    const { name, sender, receiver,destination,weight,price} = req.body;
+    db.exec("newOrder",{id, name,sender,receiver,destination,weight,price,status,isDeleted});
     res.json({ message: "Order created Successfully" });
   } catch (error) {
     res.json({ error });
