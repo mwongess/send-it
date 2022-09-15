@@ -9,11 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { ShortenPipe } from './Pipes/shorten.pipe';
 
 @NgModule({
-  declarations: [UnlessDirective, RemovebgDirective, FilterPipe],
+  declarations: [UnlessDirective, RemovebgDirective, FilterPipe,ShortenPipe],
   imports: [CommonModule,FormsModule,HttpClientModule],
-  exports: [UnlessDirective, RemovebgDirective, FilterPipe,FormsModule],
+  exports: [UnlessDirective, RemovebgDirective, FilterPipe,ShortenPipe,FormsModule],
   providers: [AuthGuard,AuthService]
 })
 export class SharedModule {}

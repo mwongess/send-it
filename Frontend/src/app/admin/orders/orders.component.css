@@ -70,6 +70,7 @@ th {
   width: 23%;
 }
 
+
 th,
 td {
   color: #627293;
@@ -112,19 +113,15 @@ img {
   border-radius: 5px;
   display: flex;
   align-items: center;
-  padding-left: 0.6rem;
+  justify-content: center;
   width: 8rem;
   height: 2rem;
 }
 .notassigned {
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  padding-left: 0.6rem;
   width: 8rem;
   height: 2rem;
   color: #fc424a !important;
-  /* background-color: #163029; */
   border: 1px solid #fc424a;
 }
 .completed {
@@ -138,7 +135,6 @@ img {
 }
 @media only screen and (max-width: 600px){
   .table{
-    /* width: 100%; */
     overflow-x: scroll;
   }
 }

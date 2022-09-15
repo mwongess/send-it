@@ -1,0 +1,152 @@
+.noparcels{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-items: center;
+    background-color: #9d1969;
+    background-color: linear-gradient(to bottom right, #9d1969,#d0145a);
+    padding: 0rem 1rem;
+    width: 80vw;
+    height: 5.5rem;
+    margin: 1.5rem;
+    border-radius: 7px;
+    color: #fff;
+    background-image:url(../../../assets/getstarted.png);
+    background-position: left;
+    background-repeat: no-repeat;
+
+}
+.btn{
+    height: 2.3rem;
+    width: 5.5rem;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:hover{
+    opacity: .6;
+}
+.parc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.parcels {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 1.5rem;
+}
+.parcel {
+    text-align: center;
+  background-color: #191c24;
+  border-radius: 3px;
+  /* height: 135px; */
+  margin-right: 1.5rem;
+  padding: 2rem;
+  color: #6c7293;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.parcel:last-child {
+  margin-right: 0;
+}
+
+.parcelname{
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    padding: 0.2rem;
+}
+.received{
+    background-color: #16302a;
+    color:#00d05a;
+    text-align: center;
+}
+.cancelled{
+    background-color: #322028;
+    color:#fc424a; 
+}
+.all{
+    background-color: 	#8B8000;
+}
+.pending-orders{
+    background-color: #563A02;
+}
+button{
+    cursor: pointer;
+    height: 1.5rem;
+    width: 5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-top: 0.5rem;
+}
+button:hover{
+    opacity: .7;
+}
+.status{
+    background-color: #322028;
+    color: #fc424a;
+    
+}
+.pending{
+    color: #d99206;
+    border: 1px solid #d99206;
+}
+.delivered{
+    color: #00d05a;
+    border: 1px solid #00d05a;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.details{
+    border-radius: 0;
+    border: none;
+    background-color: #000000;
+    /* opacity: .6; */
+    background-color: #0090e7;
+    border-radius: 3px;
+    width: 7rem;
+    color: #fff;
+}
+.pmap{
+    margin-top: 1rem;
+}
+.pmap iframe{
+    height: auto;
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    .parcels{
+        display: block;
+    }
+    .parcel{
+        margin: 1rem 0rem;
+    }
+    .noparcels{
+        /* height: 3.5rem; */
+        width: 88%;
+        /* margin: 0 1.5rem; */
+
+    }
+    .noparcels button{
+        /* width: 2rem; */
+        /* background-size: 0.3rem; */
+        /* display: none; */
+
+    }
+    .parc h3{
+        display: none;
+    }
+    .btn{
+        display: none;
+    }
+}

@@ -10,7 +10,11 @@ export class FilterPipe implements PipeTransform {
     }
     const resultArray = [];
     for (const item of value) {
-      if (item.status === filterString) {
+      if (
+        item.name
+          .toLocaleLowerCase()
+          .indexOf(filterString.toLocaleLowerCase()) !== -1
+      ) {
         resultArray.push(item);
       }
     }

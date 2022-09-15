@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+import { UsersService } from '../shared/services/users.service';
 interface Inewuser {
   Name?: string;
   Country: string;
@@ -9,8 +10,8 @@ interface Inewuser {
   Password: string;
 }
 interface Iuser {
-  Email: string;
-  Password: string;
+  email: string;
+  password: string;
 }
 
 @Component({
@@ -27,10 +28,12 @@ export class AuthComponent implements OnInit {
     Password: '',
   };
   user: Iuser = {
-    Email: '',
-    Password: '',
+    email: '',
+    password: '',
   };
-  constructor(private router: Router,private authService: AuthService) {}
+  userData: any
+  myData: any
+  constructor(private router: Router, private authService: AuthService,private userService: UsersService) {}
 
   ngOnInit(): void {}
   onSwitchMode() {
@@ -44,19 +47,20 @@ export class AuthComponent implements OnInit {
     this.newuser.Password = form.value.password;
 
     //user details during sign in
-    this.user.Email = form.value.email;
-    this.user.Password = form.value.password;
+    this.user.email = form.value.email;
+    this.user.password = form.value.password;
 
     // check mode +++ Sign up or sign in ++++
     if (this.isLoginMode) {
-      if (this.user.Email == "amos@gmail.com" && this.user.Password == "1to34567") {
-        this.authService.login()
-          this.router.navigate(['/admin/dashboard']);
-      } else {
-        this.authService.login()
-        this.router.navigate(['user/parcels']);
-      }
-
+      this.userService.onLogin(this.user).subscribe(data => {
+        this.userData = data
+        localStorage.setItem('token', this.userData.token)
+        this.userService.checkUser(this.userData.token).subscribe((frmjwt) => {
+          this.myData = frmjwt;
+          return this.authService.login(this.myData.role);
+        });
+      });
+      form.reset()
     } else {
       console.log(this.newuser);
       form.reset();

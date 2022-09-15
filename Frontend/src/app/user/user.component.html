@@ -1,24 +1,18 @@
-<div  class="container">
-  <div class="sect1">
-    <div class="header">
-      <div>
-        <img class="logo" src="../../assets/sendit.png" alt="" />
-      </div>
-      <div class="hamberger">
-        <img src="../../assets/hamberger.png" alt="hamberger" />
-      </div>
+<!-- <app-navigation-bar></app-navigation-bar> -->
+<app-navbar></app-navbar>
+<div class="admin">
+  <div class="navigation">
+    <div class="navimg">
+      <section>
+        <img src="../../assets//amos.jpg" alt="" /><span>{{user.name}}</span>
+      </section>
     </div>
-
-    <div class="image">
-      <img src="../../assets/parcel.png" alt="" />
-    </div>
+    <h4>Navigation</h4>
+    <a class="speed" routerLink="/user/dashboard"><p>Dashboard</p></a>
+    <a routerLink="parcels"><p>Orders</p></a>
+    <!-- <a routerLink="pickups"><p>Pickup stations</p></a> -->
   </div>
-  <div class="outlet">
+  <div class="placeholder">
     <router-outlet></router-outlet>
   </div>
- 
-  <!-- <div class="footer">
-      <p>Designed by  <a class="amos" href="https://linktr.ee/4ouR04">Amos Mwongela.</a></p>
-      <p>Copyright 2022</p>
-  </div> -->
 </div>

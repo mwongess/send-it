@@ -1,24 +1,45 @@
 <div class="container">
-    <div class="form">
-        <form [formGroup]="newParcelForm" (ngSubmit)="onSubmit()">
-            <h3>New parcel order</h3>
-            <input 
-            type="text" 
-            placeholder="Name"
-            formControlName="name"
-            >
-            <input type="text" formControlName="name" placeholder="From">
-           
-            <input 
-            type="text" 
-            placeholder="Destination"
-            formControlName="destination"
-            >
-            <button [disabled]="!newParcelForm.valid">Done</button>
-        </form>
-    </div>
-    <div class="clients">
-        <img src="../../../assets/parcel.png" alt="">
-    </div>
+  <div class="form">
+      <h3>New parcel order</h3>
+    <form [formGroup]="newParcelForm" (ngSubmit)="onSubmit()">
+      <input 
+      type="text" 
+      placeholder="Order name" 
+      formControlName="name" 
+      />
+      <input 
+      type="text" 
+      placeholder="Sender email" 
+      formControlName="sender" 
+      email
+      >
+      <input 
+      type="text" 
+      placeholder="Receiver email" 
+      formControlName="receiver" 
+      email
+      />
+      <input
+        type="text"
+        placeholder="Destination"
+        formControlName="destination"
+      />
+      <input 
+      type="text" 
+      placeholder="Weight" 
+      formControlName="weight" 
+      />
+      <input
+        type="text"
+        placeholder="Price"
+        formControlName="price"
+        readonly
+      />
+      <button type="submit">Done</button>
+    </form>
+  </div>
+  <!-- <div class="clients"> -->
+    <!-- <img src="../../../assets/parcel.png" alt="" /> -->
+  <!-- </div> -->
 </div>
-<app-orders></app-orders>
+<!-- <app-orders></app-orders> -->

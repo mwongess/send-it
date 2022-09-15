@@ -8,16 +8,16 @@
    
   <tr>
     <th>Parcel Name</th>
-    <th>From</th>
-    <th>To</th>
+    <th>Tracking ID</th>
+    <th>Receiver</th>
     <th>Destination</th>
     <th>Status</th>
   </tr>
  
-  <tr *ngFor="let order of parcels$|async | filter: filterString " (click)="trOnclick(order.id)">
+  <tr *ngFor="let order of parcels$|async | filter: filterString "  (click)="trOnclick(order.id)">
     <td class="photo"><img src="../../../assets/images.png" alt="">{{order.name}}</td>
-    <td>{{order.from}}</td>
-    <td>{{order.to}}</td>
+    <td>{{order.id |shorten}}</td>
+    <td>{{order.receiver}}</td>
     <td>{{order.destination}}</td>
     <td><p [ngClass]="{'status': order.status,
       'completed': order.status === 'Delivered',

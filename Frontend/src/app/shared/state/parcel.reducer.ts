@@ -46,7 +46,7 @@ export const ParcelReducer = createReducer(
     return { ...state, error: action.error_message };
   }),
 
-  // post orde/reducers
+  // post order/reducers
   on(Actions.SELECTED_PARCEL_ID, (state, action): IParcelState => {
     return { ...state, parcelId: action.id };
   }),
