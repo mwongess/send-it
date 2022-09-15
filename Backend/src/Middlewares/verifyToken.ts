@@ -17,13 +17,18 @@ export const verifyToken = (
     const token = req.headers["token"] as string;
 
     if (!token) {
-      return res.json({ message: "You are Not allowed to access this Route" });
+      return res
+        .status(401)
+        .send("Please login to access this route!!")
+        // .json({ message: "Please login to access this route!!" });
     }
 
     const data = jwt.verify(token, process.env.KEY as string) as Data;
     req.info = data;
   } catch (error) {
-    return res.json({ error });
+    return res
+      .status(500)
+      .json({ error });
   }
 
   next();

@@ -33,3 +33,38 @@ BEGIN
 DELETE FROM Orders WHERE id =@id
 END
 
+-- DETAILDED PROCEDURE
+CREATE PROCEDURE CreateUpdateOrder
+    @id varchar(100),
+    @name varchar(200),
+    @sender varchar(200),
+    @receiver varchar(200),
+    @destination varchar(200)
+    @weight varchar(200),
+    @price varchar(200)
+    @status varchar(200),
+    @isDeleted bit
+AS
+BEGIN
+    if exists  (select *  from Orders  where id=@id)
+        BEGIN
+            UPDATE Orders
+            SET
+            name= @name,
+            sender = @sender,
+            receiver= @receiver,
+            destination=@destination,
+            weight=@weight,
+            price=@price,
+            status=@status,
+            isDeleted=@isDeleted
+        END
+        
+    ELSE
+        BEGIN
+            INSERT INTO Orders
+            (id, name, sender, receiver, destination,weight,price,status, isDeleted)
+            VALUES
+            (@id, @name, @sender, @receiver, @destination, @weight, @price, @status,@isDeleted);
+        END
+END

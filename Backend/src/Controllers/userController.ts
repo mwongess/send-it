@@ -30,17 +30,23 @@ export const newUser = async (req: ExtendedRequest, res: Response) => {
   try {
     const pool = await mssql.connect(sqlConfig);
     const id = uid();
-    const role = 'user'
-    const {name , email, password} = req.body;
+    const role = "user";
+    const { name, email, password } = req.body;
     const { error, value } = UserSchema.validate(req.body);
     if (error) {
-      return res.json({ error: error.details[0].message });
+      return res
+        .status(500)
+        .json({ error: error.details[0].message });
     }
     const hashedpassword = await bcrypt.hash(password, 10);
-    db.exec("newUser",{id,email,name,hashedpassword,role})
-    res.json({ message: "Account created successfully" });
+    db.exec("InsertUpdateUser", { id, email, name, hashedpassword, role });
+    res
+      .status(201)
+      .json({ message: "Account created successfully" });
   } catch (error) {
-    res.json({ error });
+    res
+      .status(500)
+      .json({ error });
   }
 };
 
@@ -51,19 +57,23 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
     const pool = await mssql.connect(sqlConfig);
     const { error, value } = UserSchema2.validate(req.body);
     if (error) {
-      return res.json({ error: error.details[0].message });
+      return res
+        .status(500)
+        .json({ error: error.details[0].message });
     }
-    const user: IUser[] = await (
-      await db.exec('getUser',{email})
-    ).recordset;
+    const user: IUser[] = await (await db.exec("getUser", { email })).recordset;
 
     if (!user[0]) {
-      return res.json({ message: "User not found" });
+      return res
+        .status(404)
+        .json("Account doesn't exist");
     }
 
     const validPassword = await bcrypt.compare(password, user[0].password);
     if (!validPassword) {
-      return res.json({ message: "Incorrect password" });
+      return res
+        .status(401)
+        .json({ message: "Incorrect password" });
     }
     const payload = user.map((item) => {
       const { password, ...rest } = item;
@@ -72,17 +82,23 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
     const token = jwt.sign(payload[0], process.env.KEY as string, {
       expiresIn: "3600s",
     });
-    res.json({
+    res
+      .status(200)
+      .json({
       message: "Logged in successfully",
       token,
     });
   } catch (error) {
-    res.json({ error });
+    res
+      .status(500)
+      .json({ error });
   }
 };
 // ++++++++++++ CHECK USER ROLE FOR REDIRECTION ++++++++++++++++++++
 export const checkUser = async (req: Extended, res: Response) => {
   if (req.info) {
-    res.json({ name: req.info.name, role: req.info.role });
+    res
+      .status(200)
+      .json({ name: req.info.name, role: req.info.role });
   }
 };
