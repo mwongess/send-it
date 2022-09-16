@@ -20,7 +20,6 @@ export const verifyToken = (
       return res
         .status(401)
         .send("Please login to access this route!!")
-        // .json({ message: "Please login to access this route!!" });
     }
 
     const data = jwt.verify(token, process.env.KEY as string) as Data;

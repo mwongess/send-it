@@ -143,7 +143,7 @@ export const deleteOrder: RequestHandler<{ id: string }> = async (req, res) => {
         .status(404)
         .json({ message: "Order not found" });
     } else {
-      await db.exec(" deleteOrder", { id });
+      await db.exec("deleteOrder", { id });
       res
         .status(200)
         .json({ message: "Order deleted successfully" });

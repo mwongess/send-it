@@ -11,7 +11,7 @@ orouter.get('/',verifyToken, getOrders)
 orouter.get('/:id',verifyToken,getOrder)
 orouter.post('/', newOrder)
 orouter.put('/update/:id',verifyToken, updateOrder)
-orouter.delete('/:id',verifyToken, deleteOrder)
+orouter.delete('/:id', deleteOrder)
 
 
 export default orouter

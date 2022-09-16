@@ -28,7 +28,6 @@ interface ExtendedRequest extends Request {
 // ++++++++++++++++++++++++++ SIGN UP NEW USERS +++++++++++++++++++++++++++++++++++++++
 export const newUser = async (req: ExtendedRequest, res: Response) => {
   try {
-    const pool = await mssql.connect(sqlConfig);
     const id = uid();
     const role = "user";
     const { name, email, password } = req.body;
@@ -54,7 +53,6 @@ export const newUser = async (req: ExtendedRequest, res: Response) => {
 export const loginUser = async (req: ExtendedRequest, res: Response) => {
   try {
     const { email, password } = req.body;
-    const pool = await mssql.connect(sqlConfig);
     const { error, value } = UserSchema2.validate(req.body);
     if (error) {
       return res
