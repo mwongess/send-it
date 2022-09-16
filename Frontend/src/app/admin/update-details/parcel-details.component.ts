@@ -6,14 +6,7 @@ import { ParcelsService } from 'src/app/shared/services/parcels.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as Actions from '../../shared/state/parcel.actions';
 
-// interface IParcel {
-//   name: string;
-//   id: string;
-//   destination: string;
-//   from: string;
-//   to: string;
-//   status: string;
-// }
+
 @Component({
   selector: 'app-parcel-details',
   templateUrl: './parcel-details.component.html',
@@ -43,7 +36,9 @@ export class ParcelDetailsComponent implements OnInit {
         status: new FormControl(data?.status),
         destination: new FormControl(data?.destination),
         sender: new FormControl(data?.sender),
+        sendername: new FormControl(data?.sendername),
         receiver: new FormControl(data?.receiver),
+        receivername: new FormControl(data?.receivername),
         weight: new FormControl(data?.weight),
         price: new FormControl(data?.price),
       });
@@ -62,12 +57,5 @@ export class ParcelDetailsComponent implements OnInit {
     this.router.navigate(['admin/dashboard/parcels']);
   }
 
-  onDelete() {
-    this.route.params.subscribe((param) => {
-      this.id = param['id'];
-    });
-    this.store.dispatch(Actions.DELETE_PARCEL({ id: this.id }));
-    this.router.navigate(['admin/dashboard/parcels']);
-    this.store.dispatch(Actions.LOAD_PARCELS());
-  }
+  
 }

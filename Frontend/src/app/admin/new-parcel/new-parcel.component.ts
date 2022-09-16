@@ -16,8 +16,10 @@ export class NewParcelComponent implements OnInit {
   ngOnInit(): void {
     this.newParcelForm = new FormGroup({
       name: new FormControl(null,Validators.required),
-      sender: new FormControl(null,Validators.required),
-      receiver: new FormControl(null,Validators.required),
+      sender: new FormControl(null, Validators.required),
+      sendername: new FormControl(null, Validators.required),
+      receiver: new FormControl(null, Validators.required),
+      receivername: new FormControl(null, Validators.required),
       weight: new FormControl(null,Validators.required),
       price: new FormControl(null,Validators.required),
       destination: new FormControl(null,Validators.required),

@@ -1,6 +1,6 @@
 <div class="table">
     <div class="start">
-        <p class="clients">Parcel Orders</p>
+        <p class="clients">My Orders</p>
         <input type="search" placeholder="Search order by status" [(ngModel)]="filterString">
     </div>
   
@@ -9,27 +9,27 @@
   <tr>
     <th>Parcel Name</th>
     <th>Tracking ID</th>
-    <th>Receiver</th>
-    <th>Destination</th>
+    <th>Sender</th>
+    <th>Pickup point</th>
     <th>Status</th>
   </tr>
  
-  <!-- <tr *ngFor="let order of parcels$|async | filter: filterString "  (click)="trOnclick(order.id)">
+  <tr *ngFor="let order of parcels | filter: filterString "  (click)="trOnclick(order.id)">
     <td class="photo"><img src="../../../assets/images.png" alt="">{{order.name}}</td>
     <td>{{order.id |shorten}}</td>
-    <td>{{order.receiver}}</td>
+    <td>{{order.sender | shorten}}</td>
     <td>{{order.destination}}</td>
     <td><p [ngClass]="{'status': order.status,
       'completed': order.status === 'Delivered',
     'pending': order.status==='Shipping',
   'notassigned': order.status == 'Cancelled'}">{{order.status}}</p></td>
-  </tr> -->
+  </tr>
 
 </table>
-   <div ngClass="noparcels">
+   <div ngClass="noparcels" *appUnless="parcels.length != 0">
     <div ngClass="parc">
         <h3>There are no orders!!</h3>
     </div>
-    <a routerLink="parcels/new"><button ngClass="btn">Get started</button></a>
+    <!-- <a routerLink="parcels/new"><button ngClass="btn">Get started</button></a> -->
     </div>
 </div>

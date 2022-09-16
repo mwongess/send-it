@@ -43,4 +43,10 @@ export class ParcelsService {
       headers: new HttpHeaders({ token: this.token })
     });
   }
+  // user orders
+  // getMyParcels():Observable<Iparcel[]> {
+  //   return this.http.get<Iparcel[]>('http://localhost:4003/orders', {
+  //     headers: new HttpHeaders({ token: this.token })
+  //   });
+  // }
 }

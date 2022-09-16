@@ -4,18 +4,29 @@
     <form [formGroup]="newParcelForm" (ngSubmit)="onSubmit()">
       <input 
       type="text" 
-      placeholder="Order name" 
+      placeholder="Order Name" 
       formControlName="name" 
       />
       <input 
       type="text" 
-      placeholder="Sender email" 
-      formControlName="sender" 
-      email
+      placeholder="Sender Name" 
+      formControlName="sendername" 
       >
       <input 
       type="text" 
-      placeholder="Receiver email" 
+      placeholder="Sender Email" 
+      formControlName="sender" 
+      email
+
+      >
+      <input 
+      type="text" 
+      placeholder="Receiver Name" 
+      formControlName="receivername" 
+      />
+      <input 
+      type="text" 
+      placeholder="Receiver Email" 
       formControlName="receiver" 
       email
       />
@@ -25,8 +36,8 @@
         formControlName="destination"
       />
       <input 
-      type="text" 
-      placeholder="Weight" 
+      type="number" 
+      placeholder="Weight (number)" 
       formControlName="weight" 
       />
       <input

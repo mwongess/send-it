@@ -14,7 +14,7 @@
       <input
         *ngIf="!isLoginMode"
         type="text"
-        name="username"
+        name="name"
         ngModel
         placeholder="Username"
         required
@@ -26,6 +26,8 @@
         placeholder="Email"
         required
         email
+        [(ngModel)]="Email"
+
       />
       <span></span>
       <select ngModel *ngIf="!isLoginMode" name="county" id="" required="">

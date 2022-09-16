@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import {RouterModule, Routes } from '@angular/router';
 import { ParcelsComponent } from './parcels/parcels.component';
-import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
+import { ParcelDetailsComponent } from './more-details/parcel-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
@@ -15,24 +15,34 @@ import { IntroSectionComponent } from './intro-section/intro-section.component';
 
 const userRoutes: Routes = [
   {
-    path: '', component: UserComponent,
+    path: '',
+    component: UserComponent,
     children: [
       {
-        path: 'dashboard', component: IntroSectionComponent
-    },
+        path: '',
+        component: IntroSectionComponent,
+      },
       {
-      path: 'parcels', component: ParcelsComponent
-    },
-      
+        path: 'parcels',
+        component: ParcelsComponent,
+      },
+
       {
-        path: 'parcel/details', component: ParcelDetailsComponent
-      }
-    ]
+        path: 'parcel/details/:id',
+        component: ParcelDetailsComponent,
+      },
+      {
+        path: 'parcels/parcel/details/:id',
+        redirectTo: 'parcel/details/:id',
+        pathMatch: 'full'
+      },
+    ],
   },
   {
-    path:'parcels/parcel/details', redirectTo: 'parcel/details'
-  }
-]
+    path: 'parcels/parcel/details',
+    redirectTo: 'parcel/details/:id',
+  },
+];
 
 @NgModule({
   declarations: [UserComponent, ParcelsComponent, ParcelDetailsComponent, NavbarComponent, IntroSectionComponent],
