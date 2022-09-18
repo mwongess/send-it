@@ -8,8 +8,9 @@ import { getParcels } from 'src/app/shared/state/parcel.reducer';
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css'],
-  })
+})
 export class OrdersComponent implements OnInit {
+  p: number = 1;
   parcels: any;
   parcels$ = this.store.select(getParcels);
   filterString: string = '';
@@ -23,7 +24,7 @@ export class OrdersComponent implements OnInit {
     this.store.dispatch(Actions.LOAD_PARCELS());
     this.parcels$.subscribe((data) => {
       this.parcels = data;
-      console.log(this.parcels.length)
+      console.log(this.parcels.length);
     });
   }
 

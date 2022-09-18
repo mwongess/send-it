@@ -18,18 +18,18 @@ export class ParcelsComponent implements OnInit {
   cancelledOrders!: number
 
   parcels$ = this.store.select(getParcels)
-  constructor(private store: Store) {}
+  constructor(private store: Store,private parcService: ParcelsService) {}
 
   ngOnInit(): void {
-    this.store.dispatch(Actions.LOAD_PARCELS());
     this.parcels$.subscribe(pac => pac.forEach(element=> {
       this.statuses.push(element.status as string)
-      this.totalOrders = this.statuses.length/2
-      this.pendingOrders = this.statuses.filter(x=> x=='Shipping').length/2
-      this.receivedOrders = this.statuses.filter(x=> x=='Delivered').length/2
-      this.cancelledOrders = this.statuses.filter(x=> x=='Cancelled').length/2
+      this.totalOrders = this.statuses.length
+      this.pendingOrders = this.statuses.filter(x=> x=='Shipping').length
+      this.receivedOrders = this.statuses.filter(x=> x=='Delivered').length
+      this.cancelledOrders = this.statuses.filter(x=> x=='Cancelled').length
     }))
-
+    
+    // this.store.dispatch(Actions.LOAD_PARCELS());
     //querry db for all parcels
   }
   onMoreDetails() {}

@@ -4,7 +4,6 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 .logo-sect {
@@ -15,8 +14,6 @@
 }
 img{
     height: 2.6rem;
-    /* height: 9rem; */
-    /* border: 1px solid white; */
 }
 h4 {
   margin: 0rem 0rem 0.8rem 0;
@@ -34,7 +31,6 @@ form {
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  /* border: 1px solid white ; */
   width: 20rem;
   font-size: 15px;
 }
@@ -70,19 +66,7 @@ select {
   margin-right: 0.5rem;
   color: transparent;
 }
-/* input[type='checkbox']{
-    visibility: hidden;
-    
-} */
-.custm {
-  /* position: absolute;
-    top: 0;
-    left: 0; */
-  height: 25px;
-  width: 25px;
-  background-color: transparent !important;
-  border: 1px solid #0090e7 !important;
-}
+
 button {
   cursor: pointer;
   background-color: #0090e7;
@@ -101,9 +85,17 @@ button:hover {
 a {
   color: #0090e7;
   cursor: pointer;
-}
-span{
-  color: red;
+}.error{
+  background-color: #322028;
+  color: #fc424a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
 }
 /* Media queries */
 @media only screen and (max-width: 600px) {

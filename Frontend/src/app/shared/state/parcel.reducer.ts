@@ -10,6 +10,7 @@ export interface IParcelState{
   error: string
   delete_message: string
   add_message: string
+  update_message: string
 }
 
 const initialState: IParcelState = {
@@ -19,6 +20,7 @@ const initialState: IParcelState = {
   error: '',
   delete_message: '',
   add_message: '',
+  update_message: ''
 }
 
 export const getParcelsFeaturesState = createFeatureSelector<IParcelState>('parcel')
@@ -39,7 +41,7 @@ export const ParcelReducer = createReducer(
   initialState,
 
   on(Actions.LOAD_PARCELS_SUCCESS, (state, action): IParcelState => {
-    return { ...state, parcels: action.parcels};
+    return { ...state, parcels: action.parcels };
   }),
 
   on(Actions.LOAD_PARCELS_FAIL, (state, action): IParcelState => {
@@ -51,7 +53,7 @@ export const ParcelReducer = createReducer(
     return { ...state, parcelId: action.id };
   }),
   on(Actions.ADD_PARCEL_SUCCESS, (state, action): IParcelState => {
-    return { ...state, add_message: action.success_message};
+    return { ...state, add_message: action.success_message };
   }),
   on(Actions.ADD_PARCEL_FAIL, (state, action): IParcelState => {
     return { ...state, error: action.error_message };
@@ -63,6 +65,14 @@ export const ParcelReducer = createReducer(
   }),
 
   on(Actions.DELETE_PARCELS_FAIL, (state, action): IParcelState => {
+    return { ...state, error: action.error_message };
+  }),
+  
+  // Update parcels
+  on(Actions.UPDATE_PARCEL_SUCCESS, (state, action): IParcelState => {
+    return { ...state, update_message: action.success_message};
+  }),
+  on(Actions.UPDATE_PARCEL_FAIL, (state, action): IParcelState => {
     return { ...state, error: action.error_message };
   })
 );

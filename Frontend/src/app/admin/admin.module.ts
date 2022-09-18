@@ -4,7 +4,6 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NavigationBarComponent } from '../shared/components/navigation-bar/navigation-bar.component';
 import { PickupsComponent } from './pickups/pickups.component';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { NewParcelComponent } from './new-parcel/new-parcel.component';
@@ -15,8 +14,9 @@ import { ParcelEffectsService } from '../shared/state/parcel-effects.service';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ParcelReducer } from '../shared/state/parcel.reducer';
-import { AuthGuard } from '../shared/services/auth-guard.service';
 import { MoreDetailsComponent } from './more-details/more-details.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const adminRoutes: Routes = [
   {
@@ -63,7 +63,6 @@ const adminRoutes: Routes = [
   declarations: [
     AdminComponent,
     DashboardComponent,
-    NavigationBarComponent,
     PickupsComponent,
     ParcelsComponent,
     NewParcelComponent,
@@ -73,13 +72,13 @@ const adminRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(adminRoutes),
     SharedModule,
+    RouterModule.forChild(adminRoutes),
     ReactiveFormsModule,
     StoreModule.forFeature(
       'parcel', ParcelReducer
     ),
-    EffectsModule.forFeature([ParcelEffectsService]),
+    EffectsModule.forFeature([ParcelEffectsService]),GoogleMapsModule,NgxPaginationModule
   ],
 })
 export class AdminModule {}
