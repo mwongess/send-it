@@ -8,7 +8,9 @@ import { UsersService } from 'src/app/shared/services/users.service';
 })
 export class NavbarComponent implements OnInit {
   token: string = '';
-  user: any;
+  user: any = {
+    name: 'User'
+  }
   shownow = false;
   filteredStatus: string = '';
   constructor(private userService: UsersService) { }

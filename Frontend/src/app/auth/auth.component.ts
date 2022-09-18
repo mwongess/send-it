@@ -1,18 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Inewuser, Iuser } from '../shared/models/user.model';
 import { AuthService } from '../shared/services/auth.service';
 import { UsersService } from '../shared/services/users.service';
-interface Inewuser {
-  Name?: string;
-  Country: string;
-  Email: string;
-  Password: string;
-}
-interface Iuser {
-  email: string;
-  password: string;
-}
 
 @Component({
   selector: 'app-auth',
@@ -20,12 +11,13 @@ interface Iuser {
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
+  Email = ''
+  Password = ''
   isLoginMode = true;
   newuser: Inewuser = {
-    Name: '',
-    Country: '',
-    Email: '',
-    Password: '',
+    name: '',
+    email: '',
+    password: '',
   };
   user: Iuser = {
     email: '',
@@ -41,10 +33,9 @@ export class AuthComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     // new user details during sign up
-    this.newuser.Name = form.value.username;
-    this.newuser.Country = form.value.county;
-    this.newuser.Email = form.value.email;
-    this.newuser.Password = form.value.password;
+    this.newuser.name = form.value.name;
+    this.newuser.email = form.value.email;
+    this.newuser.password = form.value.password;
 
     //user details during sign in
     this.user.email = form.value.email;
@@ -55,6 +46,7 @@ export class AuthComponent implements OnInit {
       this.userService.onLogin(this.user).subscribe(data => {
         this.userData = data
         localStorage.setItem('token', this.userData.token)
+        localStorage.setItem('email', this.user.email )
         this.userService.checkUser(this.userData.token).subscribe((frmjwt) => {
           this.myData = frmjwt;
           return this.authService.login(this.myData.role);
@@ -62,8 +54,17 @@ export class AuthComponent implements OnInit {
       });
       form.reset()
     } else {
-      console.log(this.newuser);
-      form.reset();
+      console.log(this.newuser)
+      this.userService.onSignUp(this.newuser).subscribe(res => {
+        this.router.navigate(['/auth'])
+        this.Email = this.newuser.email
+        this.Password  = this.newuser.password
+        console.log(res)
+      })
+      this.Email = this.newuser.email;
+      this.Password = this.newuser.password;
+      // form.reset();
+      this.router.navigate(['/auth']);
     }
   }
 }

@@ -17,7 +17,7 @@
   <tr *ngFor="let order of parcels$|async | filter: filterString "  (click)="trOnclick(order.id)">
     <td class="photo"><img src="../../../assets/images.png" alt="">{{order.name}}</td>
     <td>{{order.id |shorten}}</td>
-    <td>{{order.receiver}}</td>
+    <td>{{order.receiver | shorten}}</td>
     <td>{{order.destination}}</td>
     <td><p [ngClass]="{'status': order.status,
       'completed': order.status === 'Delivered',
@@ -26,7 +26,7 @@
   </tr>
 
 </table>
-   <div ngClass="noparcels" *appUnless="parcels.length >= 0">
+   <div ngClass="noparcels" *appUnless="parcels.length != 0">
     <div ngClass="parc">
         <h3>There are no orders!!</h3>
     </div>

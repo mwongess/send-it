@@ -9,13 +9,14 @@ import { PickupsComponent } from './pickups/pickups.component';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { NewParcelComponent } from './new-parcel/new-parcel.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ParcelDetailsComponent } from './parcel-details/parcel-details.component';
+import { ParcelDetailsComponent } from './update-details/parcel-details.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ParcelEffectsService } from '../shared/state/parcel-effects.service';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ParcelReducer } from '../shared/state/parcel.reducer';
 import { AuthGuard } from '../shared/services/auth-guard.service';
+import { MoreDetailsComponent } from './more-details/more-details.component';
 
 const adminRoutes: Routes = [
   {
@@ -32,7 +33,11 @@ const adminRoutes: Routes = [
       },
       {
         path: 'parcel/details/:id',
-        component: ParcelDetailsComponent,
+        component: MoreDetailsComponent,
+      },
+      {
+        path: 'parcel/details/:id/update',
+        component:ParcelDetailsComponent
       },
       {
         path: 'parcels/parcel/details/:id',
@@ -64,6 +69,7 @@ const adminRoutes: Routes = [
     NewParcelComponent,
     ParcelDetailsComponent,
     OrdersComponent,
+    MoreDetailsComponent,
   ],
   imports: [
     CommonModule,

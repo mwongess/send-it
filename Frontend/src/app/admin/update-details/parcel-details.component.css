@@ -68,6 +68,12 @@ button{
     margin-right: 0.8rem;
     color: #fff;
 }
+.buttons{
+  display: flex;
+}
+.cancel{
+  background-color: #00d05a;
+}
 .delete{
     background-color: #fc424a;
 }

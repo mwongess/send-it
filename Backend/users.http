@@ -15,12 +15,21 @@ Content-Type: application/json
     "email":"mos@gmail.com",
     "password":"1to34567"
 }
+###
+POST http://localhost:4003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Moses",
+    "email":"moses@gmail.com",
+    "password":"1to34567"
+}
 
 ###
 POST http://localhost:4003/user/login
 Content-Type: application/json
 
 {
-    "email":"hezie@gmail.com",
+    "email":"hezzie@gmail.com",
     "password":"12345678"
 }

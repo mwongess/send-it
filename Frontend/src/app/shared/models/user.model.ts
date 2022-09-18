@@ -1,5 +1,11 @@
-export interface Iuser{
+export interface Inewuser{
     name: string
     email: string
-    parcel_name: string
-    parcel_status: string}
+    password: string
+}
+
+export interface Iuser {
+  email: string;
+  password: string;
+}
+    
