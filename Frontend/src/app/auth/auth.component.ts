@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
 import { EmailValidator, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertComponent } from '../shared/components/alert/alert.component';
 import { Inewuser, Iuser } from '../shared/models/user.model';
 import { AuthService } from '../shared/services/auth.service';
 import { UsersService } from '../shared/services/users.service';
+import {PlaceholderDirective} from '../shared/Directives/placeholder.directive'
 
 @Component({
   selector: 'app-auth',
@@ -11,6 +13,7 @@ import { UsersService } from '../shared/services/users.service';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
+  error:any
   Email = ''
   Password = ''
   isLoginMode = true;
@@ -25,7 +28,8 @@ export class AuthComponent implements OnInit {
   };
   userData: any
   myData: any
-  constructor(private router: Router, private authService: AuthService,private userService: UsersService) {}
+  @ViewChild(PlaceholderDirective) alertHost!:PlaceholderDirective
+  constructor(private router: Router, private authService: AuthService,private userService: UsersService, private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit(): void {}
   onSwitchMode() {
@@ -43,28 +47,42 @@ export class AuthComponent implements OnInit {
 
     // check mode +++ Sign up or sign in ++++
     if (this.isLoginMode) {
-      this.userService.onLogin(this.user).subscribe(data => {
+      this.userService.onLogin(this.user).subscribe((data) => {
         this.userData = data
+        console.log(data)
         localStorage.setItem('token', this.userData.token)
         localStorage.setItem('email', this.user.email )
         this.userService.checkUser(this.userData.token).subscribe((frmjwt) => {
           this.myData = frmjwt;
+          console.log(this.myData.role);
           return this.authService.login(this.myData.role);
         });
-      });
+      },
+        res => {
+          this.error = res
+          // this.showError(res)
+        setTimeout(() => {
+          this.error = ''
+        },5000)
+      }
+      );
       form.reset()
     } else {
-      console.log(this.newuser)
       this.userService.onSignUp(this.newuser).subscribe(res => {
         this.router.navigate(['/auth'])
         this.Email = this.newuser.email
-        this.Password  = this.newuser.password
-        console.log(res)
+        this.Password = this.newuser.password
+        
       })
       this.Email = this.newuser.email;
       this.Password = this.newuser.password;
-      // form.reset();
-      this.router.navigate(['/auth']);
+      form.reset();
     }
+  }
+  private showError(message: string) {
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent)
+    const hostViewContainerRef = this.alertHost.viewContainerRef
+    hostViewContainerRef.clear()
+    hostViewContainerRef.createComponent(alertCmpFactory)
   }
 }

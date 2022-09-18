@@ -133,6 +133,9 @@ img {
   color: #ffab00;
   border: 1px solid #ffab00;
 }
+pagination-controls{
+  margin-top: 1rem;
+}
 @media only screen and (max-width: 600px){
   .table{
     overflow-x: scroll;

@@ -49,10 +49,7 @@ export class ParcelDetailsComponent implements OnInit {
   }
 
   onSubmit() {
-    // send the inputs data to database
-    this.store.dispatch(
-      Actions.ADD_PARCEL({ newParcel: this.updateParcelForm.value })
-    );
+    this.store.dispatch(Actions.UPDATE_PARCEL({id: this.id,updatedParcel: this.updateParcelForm.value}))
     this.store.dispatch(Actions.LOAD_PARCELS());
     this.router.navigate(['admin/dashboard/parcels']);
   }

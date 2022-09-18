@@ -14,7 +14,7 @@
     <th>Status</th>
   </tr>
  
-  <tr *ngFor="let order of parcels$|async | filter: filterString "  (click)="trOnclick(order.id)">
+  <tr *ngFor="let order of parcels$ |async | filter: filterString | paginate: {itemsPerPage: 4, currentPage: p} "  (click)="trOnclick(order.id)">
     <td class="photo"><img src="../../../assets/images.png" alt="">{{order.name}}</td>
     <td>{{order.id |shorten}}</td>
     <td>{{order.receiver | shorten}}</td>
@@ -24,7 +24,7 @@
     'pending': order.status==='Shipping',
   'notassigned': order.status == 'Cancelled'}">{{order.status}}</p></td>
   </tr>
-
+ <pagination-controls (pageChange)="p =$event" *ngIf="parcels.length > 0" ngClass="controls"></pagination-controls>
 </table>
    <div ngClass="noparcels" *appUnless="parcels.length != 0">
     <div ngClass="parc">

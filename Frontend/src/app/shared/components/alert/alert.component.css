@@ -1,0 +1,12 @@
+.error{
+  background-color: #322028;
+  color: #fc424a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
