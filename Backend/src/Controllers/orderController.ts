@@ -90,7 +90,7 @@ export const getOrder: RequestHandler<{ id: string }> = async (req, res) => {
 export const updateOrder: RequestHandler<{ id: string }> = async (req, res) => {
   try {
     const id = req.params.id;
-    const isDeleted: string = "true";
+    const isDeleted: string = "false";
     const { name, sender, sendername,receiver,receivername, destination, weight, price, status } =
       req.body as {
         name: string;

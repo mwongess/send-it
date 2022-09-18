@@ -27,13 +27,13 @@ GET http://localhost:4003/orders/354eae15-6c10-421b-9999-51e0b3d45c84
 
 
 ####
-PUT http://localhost:4003/orders/update/4061d1ae-7866-4c82-9dde-e87ff5c8b9f1
+PUT http://localhost:4003/orders/update/e26c1938-3859-43e8-b0e0-ab072ec88f5d
 Content-Type: application/json
 
 {
     "name":"Order 10",
     "sender":"amos@gmail.com",
-    "sendername": "'Amos'",
+    "sendername": "Amos",
     "receiver":"mwongela@gmail.com",
     "receivername": "Mwongela",
     "destination": "Keru",
