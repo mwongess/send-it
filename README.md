@@ -1,6 +1,6 @@
-<img src="./banner/sendit.png">
+<img style="width: 100% ;height: 15rem" src="./banner/sendit.png">
 
-sendIT is a courier service that helps users deliver parcels to different destinations.Also provides courier quotes based on weight categories.
+SendIT is a courier service that helps users deliver parcels to different destinations.Also provides courier quotes based on weight categories.
 
 ## Technologies
 Angular
