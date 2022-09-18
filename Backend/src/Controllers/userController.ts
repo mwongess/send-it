@@ -29,7 +29,7 @@ interface ExtendedRequest extends Request {
 export const newUser = async (req: ExtendedRequest, res: Response) => {
   try {
     const id = uid();
-    const role = "user";
+    const role = "Admin";
     const { name, email, password } = req.body;
     const { error, value } = UserSchema.validate(req.body);
     if (error) {
@@ -64,14 +64,14 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
     if (!user[0]) {
       return res
         .status(404)
-        .json("Account doesn't exist");
+        .json({error: "Account doesn't exist"});
     }
 
     const validPassword = await bcrypt.compare(password, user[0].password);
     if (!validPassword) {
       return res
         .status(401)
-        .json({ message: "Incorrect password" });
+        .json({error: "Incorrect password" });
     }
     const payload = user.map((item) => {
       const { password, ...rest } = item;

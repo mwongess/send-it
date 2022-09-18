@@ -2,9 +2,9 @@ POST http://localhost:4003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Amos Mwongela",
-    "email":"johnd@gmail.com",
-    "password":"12345678"
+    "name": "Amos",
+    "email":"amosmwongelah@gmail.com",
+    "password":"1to34567"
 }
 ###
 POST http://localhost:4003/user/signup
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "name": "Mos",
-    "email":"mos@gmail.com",
+    "email":"cmplyamos113@gmail.com",
     "password":"1to34567"
 }
 ###
