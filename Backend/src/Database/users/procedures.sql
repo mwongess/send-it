@@ -1,10 +1,3 @@
--- GET A SPECIFIC USER
-CREATE PROCEDURE getUser(@email VARCHAR(200))
-AS
-BEGIN
-SELECT * FROM Users WHERE email =@email
-END
-
 -- DETAILED PROCEDURE
 CREATE PROCEDURE InsertUpdateUser
 (
@@ -25,4 +18,11 @@ else
         INSERT INTO Users(id,name,email,password,role,)
         VALUES(@id,@name,@email,@hashedpassword,@role,)
     END
+END
+
+-- GET A SPECIFIC USER
+CREATE PROCEDURE getUser(@email VARCHAR(200))
+AS
+BEGIN
+SELECT * FROM Users WHERE email =@email
 END

@@ -37,8 +37,16 @@ export const newUser = async (req: ExtendedRequest, res: Response) => {
         .status(500)
         .json({ error: error.details[0].message });
     }
+    const { recordset } = await db.exec("getUser", { email });
+
+    if (recordset.length > 0) {
+      return res
+        .status(400)
+
+        .send({ message: "Account exists", success: false });
+    }
     const hashedpassword = await bcrypt.hash(password, 10);
-    db.exec("InsertUpdateUser", { id, email, name, hashedpassword, role });
+    (await db.exec("InsertUpdateUser", { id, email, name, hashedpassword, role }));
     res
       .status(201)
       .json({ message: "Account created successfully" });

@@ -8,13 +8,12 @@ Content-Type: application/json
     "name":"Order 10",
     "sender":"amos@gmail.com",
     "sendername": "'Amos'",
-    "receiver":"mwongela@gmail.com",
+    "receiver":"amwongelah@gmail.com",
     "receivername": "Mwongela",
     "destination": "Keru",
     "destination": "Keru",
     "weight": 112,
-    "price": 1,
-    "status":"Delivered"
+    "price": 1
 }
 ###
 
