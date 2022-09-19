@@ -43,7 +43,7 @@ export const newUser = async (req: ExtendedRequest, res: Response) => {
       return res
         .status(400)
 
-        .send({ error: "Account exists.Redirecting to login..."});
+        .send({ error: "Account already exists."});
     }
     const hashedpassword = await bcrypt.hash(password, 10);
     (await db.exec("InsertUpdateUser", { id, email, name, hashedpassword, role }));
