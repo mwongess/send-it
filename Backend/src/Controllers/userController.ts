@@ -29,7 +29,7 @@ interface ExtendedRequest extends Request {
 export const newUser = async (req: ExtendedRequest, res: Response) => {
   try {
     const id = uid();
-    const role = "Admin";
+    const role = "user";
     const { name, email, password } = req.body;
     const { error, value } = UserSchema.validate(req.body);
     if (error) {
@@ -43,7 +43,7 @@ export const newUser = async (req: ExtendedRequest, res: Response) => {
       return res
         .status(400)
 
-        .send({ message: "Account exists", success: false });
+        .send({ error: "Account exists.Redirecting to login..."});
     }
     const hashedpassword = await bcrypt.hash(password, 10);
     (await db.exec("InsertUpdateUser", { id, email, name, hashedpassword, role }));
