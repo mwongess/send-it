@@ -36,7 +36,7 @@ token: ""
 
 ### GET ALL ORDERS
 GET http://localhost:4003/orders
-token: ""
+token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmMjY3MjYzLTkzNWEtNGRkMC05MGEzLWU0ZTljNWM2ODZmNyIsIm5hbWUiOiJBbW9zIiwiZW1haWwiOiJhbW9zbXdvbmdlbGFoQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlzV2VsY29tZWQiOnRydWUsImlhdCI6MTY2MzU4MzkyOSwiZXhwIjoxNjYzNTg3NTI5fQ.j4_fwEDiM66hEsixaqF5VnmugoWJEjYgwAyMJPTxsAE"
 
 
 ### GET SPECIFIC ORDER
