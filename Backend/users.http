@@ -1,3 +1,4 @@
+###NEW USER(Admin)
 POST http://localhost:4003/user/signup
 Content-Type: application/json
 
@@ -6,30 +7,29 @@ Content-Type: application/json
     "email":"amosmwongelah@gmail.com",
     "password":"1to34567"
 }
-###
+###ANOTHER USER
 POST http://localhost:4003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Mos",
+    "name": "User 2",
     "email":"cmplyamos113@gmail.com",
     "password":"1to34567"
 }
-###
-POST http://localhost:4003/user/signup
-Content-Type: application/json
 
-{
-    "name": "Moses",
-    "email":"moses@gmail.com",
-    "password":"1to34567"
-}
-
-###
+###LOGIN Amos(Admin)
 POST http://localhost:4003/user/login
 Content-Type: application/json
 
 {
-    "email":"hezzie@gmail.com",
-    "password":"12345678"
+    "email":"amosmwongelah@gmail.com",
+    "password":"1to34567"
+}
+###LOGIN User 2(User)
+POST http://localhost:4003/user/login
+Content-Type: application/json
+
+{
+    "email":"cmplyamos113@gmail.com",
+    "password":"1to345678"
 }
