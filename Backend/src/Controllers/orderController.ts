@@ -1,6 +1,7 @@
 import { Request, RequestHandler, Response } from "express";
 import { v4 as uid } from "uuid";
 import Connection from "../Helpers/db.helper";
+import { OrderSchema } from "../Helpers/orderValidator";
 const db = new Connection();
 
 interface ExtendedRequest extends Request {
@@ -31,6 +32,10 @@ export const newOrder = async (req: ExtendedRequest, res: Response) => {
       weight,
       price,
     } = req.body;
+    const { error, value } = OrderSchema.validate(req.body);
+    if (error) {
+      return res.status(500).json({ error: error.details[0].message });
+    }
     db.exec("CreateUpdateOrder", {
       id,
       name,
