@@ -49,12 +49,10 @@ export class AuthComponent implements OnInit {
     if (this.isLoginMode) {
       this.userService.onLogin(this.user).subscribe((data) => {
         this.userData = data
-        console.log(data)
         localStorage.setItem('token', this.userData.token)
         localStorage.setItem('email', this.user.email )
         this.userService.checkUser(this.userData.token).subscribe((frmjwt) => {
           this.myData = frmjwt;
-          console.log(this.myData.role);
           return this.authService.login(this.myData.role);
         });
       },

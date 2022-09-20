@@ -145,7 +145,10 @@ hr{
     width: 100%;
 }
 @media only screen and (max-width: 600px) {
-    
+    .header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
 	button{
 		display: none;
 	}
@@ -158,7 +161,7 @@ hr{
 	
 	.hamberger{
 		display: inline;
-		margin-left: 13rem;
+		/* margin-left: 13rem; */
 		transform: translateY(28%);
 
 	}

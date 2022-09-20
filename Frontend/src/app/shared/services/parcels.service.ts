@@ -8,10 +8,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ParcelsService {
   myorder!: any;
-
-  constructor(private router: Router, private http: HttpClient) {}
   token = localStorage.getItem('token') as string;
   url = 'http://localhost:4003';
+
+  constructor(private router: Router, private http: HttpClient) {}
 
   onseeMore(id: string | number) {
     this.gettAllParcels().subscribe((parcels) => {

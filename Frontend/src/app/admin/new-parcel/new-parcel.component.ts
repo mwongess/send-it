@@ -26,7 +26,7 @@ export class NewParcelComponent implements OnInit {
     });
 
     this.newParcelForm.get('weight')?.valueChanges.subscribe((res) => {
-      this.newParcelForm.get('price')!.setValue('$ ' + res * 19);
+      this.newParcelForm.get('price')!.setValue(res * 19);
     });
   }
   onSubmit() {
@@ -35,6 +35,5 @@ export class NewParcelComponent implements OnInit {
     );
     this.store.dispatch(Actions.LOAD_PARCELS());
     this.router.navigate(['admin/dashboard/parcels']);
-    console.log(this.newParcelForm);
   }
 }

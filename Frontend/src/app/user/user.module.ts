@@ -12,6 +12,7 @@ import { ParcelEffectsService } from '../shared/state/parcel-effects.service';
 import { EffectsModule } from '@ngrx/effects';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IntroSectionComponent } from './intro-section/intro-section.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const userRoutes: Routes = [
   {
@@ -45,16 +46,21 @@ const userRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [UserComponent, ParcelsComponent, ParcelDetailsComponent, NavbarComponent, IntroSectionComponent],
+  declarations: [
+    UserComponent,
+    ParcelsComponent,
+    ParcelDetailsComponent,
+    NavbarComponent,
+    IntroSectionComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(userRoutes),
     ReactiveFormsModule,
-      StoreModule.forFeature(
-     ' parcel', ParcelReducer
-      ),
-      EffectsModule.forFeature([ParcelEffectsService]),
-    SharedModule
+    StoreModule.forFeature(' parcel', ParcelReducer),
+    EffectsModule.forFeature([ParcelEffectsService]),
+    SharedModule,
+    NgxPaginationModule,
   ],
 })
 export class UserModule {}

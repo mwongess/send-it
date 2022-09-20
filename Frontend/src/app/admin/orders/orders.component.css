@@ -1,11 +1,13 @@
 .table {
   background-color: #191c24;
-  padding: 1.5rem;
   /* height: 10rem; */
   margin: 1.5rem;
   color: white;
 
   border-radius: 5px;
+}
+.sect2 {
+  padding: 1rem;
 }
 .start {
   display: flex;
@@ -70,11 +72,11 @@ th {
   width: 23%;
 }
 
-
 th,
 td {
   color: #627293;
   height: 3rem;
+  overflow: hidden;
   text-align: left;
   border-bottom: 1px solid #2c2e33;
 }
@@ -82,11 +84,12 @@ th {
   font-size: 16px;
 }
 tr:hover {
-  opacity: 0.6;
-  color: #000000;
+  opacity: 0.7;
+  padding: 0.5rem;
   cursor: pointer;
-  /* background-color: #fff; */
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   color: white !important;
+  border-bottom: none !important;
 }
 tr:nth-child(1):hover {
   opacity: 1;
@@ -94,11 +97,7 @@ tr:nth-child(1):hover {
   background-color: initial;
   cursor: initial;
 }
-img {
-  height: 1.9rem;
-  width: 1.9rem;
-  border-radius: 50%;
-}
+
 .photo {
   display: flex;
   /* justify-content: center; */
@@ -133,11 +132,11 @@ img {
   color: #ffab00;
   border: 1px solid #ffab00;
 }
-pagination-controls{
+pagination-controls {
   margin-top: 1rem;
 }
-@media only screen and (max-width: 600px){
-  .table{
+@media only screen and (max-width: 600px) {
+  .table {
     overflow-x: scroll;
   }
 }

@@ -4,6 +4,8 @@
 }
 .form {
   background-color: #191c24;
+}
+.realform {
   padding: 1rem;
 }
 form {
@@ -16,8 +18,8 @@ h3 {
   color: #fff;
   margin-bottom: 0.5rem;
 }
-input:last-child{
-    margin-top: 0rem;
+input:last-child {
+  margin-top: 0rem;
 }
 input {
   border: none;
@@ -56,6 +58,43 @@ button {
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #02aab0 0%,
+    #00cdac 51%,
+    #02aab0 100%
+  );
+  /* margin: 10px; */
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
+  /* border-radius: 10px; */
+  display: block;
+}
+
+button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.image {
+  background-image: linear-gradient(to right, #00b09b, #96c93d);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-radius: 5px 5px 0 0;
+  height: 3rem;
+  opacity: .6;
+}
+.image img {
+  width: 100%;
+}
 @media only screen and (max-width: 600px) {
   .container {
     display: block;
@@ -66,7 +105,7 @@ input.ng-invalid.ng-touched {
   .clients img {
     height: 10rem;
   }
-  form{
+  form {
     display: flex;
     flex-direction: column;
   }
