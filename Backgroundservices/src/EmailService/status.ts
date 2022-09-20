@@ -18,14 +18,13 @@ const updateStatus = async () => {
         ejs.renderFile(
           "templates/shipping.ejs",
           { name: parcel.receivername },
-          async (data) => {
+          async (error, data) => {
             let messageoption = {
               from: process.env.EMAIL,
               to: parcel.receiver,
-              subject: `Order status changed!!`,
+              subject: `Parcel has been dispatched`,
               html: data,
             };
-
             try {
               await sendMail(messageoption);
               await db.exec("orderSetEmailSent",{id:parcel.id});
@@ -38,16 +37,17 @@ const updateStatus = async () => {
         break
       case "Delivered":
         ejs.renderFile(
-          "templates/delivered.ejs",
+          'templates/delivered.ejs',
           { name: parcel.receivername },
-          async (data) => {
+          async (error,data) => {
             let messageoption = {
               from: process.env.EMAIL,
               to: parcel.receiver,
-              subject: `Order status changed!!`,
+              subject: `Parcel has been Delivered`,
               html: data,
             };
-
+              // console.log(messageoption);
+              
             try {
               await sendMail(messageoption);
               await await db.exec("orderSetEmailSent", {id: parcel.id });
@@ -62,17 +62,19 @@ const updateStatus = async () => {
         ejs.renderFile(
           "templates/cancelled.ejs",
           { name: parcel.receivername },
-          async (data) => {
+          async (error,data) => {
             let messageoption = {
               from: process.env.EMAIL,
               to: parcel.receiver,
-              subject: `Order status changed!!`,
+              subject: `Order has been cancelled`,
               html: data,
             };
 
+              console.log(messageoption);
+              
             try {
               await sendMail(messageoption);
-              await await db.exec("orderSetEmailSent", { id:parcel.id });
+              await await db.exec("orderSetEmailSent", { id: parcel.id });
             } catch (error) {
               console.log(error);
             }
