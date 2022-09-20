@@ -1,35 +1,124 @@
 <div class="table">
+  <div class="image">
+    <img src="https://cdn-icons-png.flaticon.com/512/2343/2343805.png" alt="" />
+  </div>
+  <div class="tables">
     <div class="start">
-        <p class="clients">My Orders</p>
-        <input type="search" placeholder="Search order by status" [(ngModel)]="filterString">
+      <p class="clients">Sent Orders</p>
+      <input
+        type="search"
+        placeholder="Search order by status"
+        [(ngModel)]="filterString"
+      />
     </div>
-  
-<table>
-   
-  <tr>
-    <th>Parcel Name</th>
-    <th>Tracking ID</th>
-    <th>Sender</th>
-    <th>Pickup point</th>
-    <th>Status</th>
-  </tr>
- 
-  <tr *ngFor="let order of parcels | filter: filterString "  (click)="trOnclick(order.id)">
-    <td class="photo"><img src="../../../assets/images.png" alt="">{{order.name}}</td>
-    <td>{{order.id |shorten}}</td>
-    <td>{{order.sender | shorten}}</td>
-    <td>{{order.destination}}</td>
-    <td><p [ngClass]="{'status': order.status,
-      'completed': order.status === 'Delivered',
-    'pending': order.status==='Shipping',
-  'notassigned': order.status == 'Cancelled'}">{{order.status}}</p></td>
-  </tr>
 
-</table>
-   <div ngClass="noparcels" *appUnless="parcels.length != 0">
-    <div ngClass="parc">
+    <table>
+      <tr>
+        <th>Tracking ID</th>
+        <th>Parcel Name</th>
+        <th>Receiver</th>
+        <th>Pickup point</th>
+        <th>Status</th>
+      </tr>
+
+      <tr
+        *ngFor="
+          let order of sentParcels
+            | filter: filterString
+            | paginate: { itemsPerPage: 4, currentPage: p }
+        "
+        (click)="trOnclick(order.id)"
+      >
+        <td>{{ order.id | shorten }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.receiver | shorten }}</td>
+        <td>{{ order.destination }}</td>
+        <td>
+          <p
+            [ngClass]="{
+              status: order.status,
+              completed: order.status === 'Delivered',
+              pending: order.status === 'Shipping',
+              notassigned: order.status == 'Cancelled'
+            }"
+          >
+            {{ order.status }}
+          </p>
+        </td>
+      </tr>
+      <pagination-controls
+        *ngIf="parcels.length > 4"
+        (pageChange)="p = $event"
+        ngClass="controls"
+      ></pagination-controls>
+    </table>
+    <div ngClass="noparcels" *appUnless="parcels.length != 0">
+      <div ngClass="parc">
         <h3>There are no orders!!</h3>
+      </div>
     </div>
-    <!-- <a routerLink="parcels/new"><button ngClass="btn">Get started</button></a> -->
+  </div>
+</div>
+<!-- RECEIVED -->
+<div class="table">
+  <div class="image receivedsect">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd4ErMeyW3vUFiScJEnxy5q8j1cS2BiC6Quw&usqp=CAU" alt="" />
+  </div>
+  <div class="tables">
+    <div class="start">
+    <p class="clients">Received Orders</p>
+    <input
+      type="search"
+      placeholder="Search order by status"
+      [(ngModel)]="filterString"
+    />
+  </div>
+
+  <table>
+    <tr>
+      <th>Tracking ID</th>
+      <th>Parcel Name</th>
+      <th>Sender</th>
+      <th>Pickup point</th>
+      <th>Status</th>
+    </tr>
+
+    <tr
+      *ngFor="
+        let order of parcels
+          | filter: filterString
+          | paginate: { itemsPerPage: 4, currentPage: p }
+      "
+      (click)="trOnclick(order.id)"
+    >
+      <td>{{ order.id | shorten }}</td>
+      <td>{{ order.name }}</td>
+      <td>{{ order.sender | shorten }}</td>
+      <td>{{ order.destination }}</td>
+      <td>
+        <p
+          [ngClass]="{
+            status: order.status,
+            completed: order.status === 'Delivered',
+            pending: order.status === 'Shipping',
+            notassigned: order.status == 'Cancelled'
+          }"
+        >
+          {{ order.status }}
+        </p>
+      </td>
+    </tr>
+    <pagination-controls
+      *ngIf="parcels.length > 4"
+      (pageChange)="p = $event"
+      ngClass="controls"
+    ></pagination-controls>
+  </table>
+  <div ngClass="noparcels" *appUnless="parcels.length != 0">
+    <div ngClass="parc">
+      <h3>There are no orders!!</h3>
     </div>
+  </div>
+  </div>
+  
 </div>

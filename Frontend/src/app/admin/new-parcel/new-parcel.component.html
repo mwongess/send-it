@@ -1,42 +1,52 @@
 <div class="container">
   <div class="form">
-    <h3>New parcel order</h3>
-    <form [formGroup]="newParcelForm" (ngSubmit)="onSubmit()">
-      <input type="text" placeholder="Order Name" formControlName="name" />
-      <input
-        type="text"
-        placeholder="Sender Name"
-        formControlName="sendername"
-      />
-      <input
-        type="text"
-        placeholder="Sender Email"
-        formControlName="sender"
-        email
-      />
-      <input
-        type="text"
-        placeholder="Receiver Name"
-        formControlName="receivername"
-      />
-      <input
-        type="text"
-        placeholder="Receiver Email"
-        formControlName="receiver"
-        email
-      />
-      <input
-        type="text"
-        placeholder="Destination"
-        formControlName="destination"
-      />
-      <input
-        type="number"
-        placeholder="Weight (number)"
-        formControlName="weight"
-      />
-      <input type="text" placeholder="Price" formControlName="price" readonly />
-      <button type="submit" [disabled]="!newParcelForm.valid">Done</button>
-    </form>
+    <div class="image"></div>
+    <div class="realform">
+      <h3>New parcel order</h3>
+      <form [formGroup]="newParcelForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Order Name" formControlName="name" />
+        <input
+          type="text"
+          placeholder="Sender Name"
+          formControlName="sendername"
+        />
+        <input
+          type="text"
+          placeholder="Sender Email"
+          formControlName="sender"
+          email
+        />
+        <input
+          type="text"
+          placeholder="Receiver Name"
+          formControlName="receivername"
+        />
+        <input
+          type="text"
+          placeholder="Receiver Email"
+          formControlName="receiver"
+          email
+        />
+        <input
+          type="text"
+          placeholder="Destination"
+          formControlName="destination"
+        />
+        <input
+          type="number"
+          placeholder="Weight (number)"
+          formControlName="weight"
+        />
+        <input
+          type="text"
+          placeholder="Price"
+          formControlName="price"
+          readonly
+        />
+        <button type="submit" [disabled]="!newParcelForm.valid" class="btn-grad ">
+          Done
+        </button>
+      </form>
+    </div>
   </div>
 </div>

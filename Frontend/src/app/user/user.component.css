@@ -67,6 +67,9 @@ a{
 
 .placeholder{
     background-color: #000000;
+    /* background-image: url(https://c.tenor.com/tD8F-WrsD6AAAAAM/graph-chart.gif); */
+    background-repeat: no-repeat;
+    background-position: center;
     /* background-color: #ffff; */
     background-size: cover;
     background-position: top;

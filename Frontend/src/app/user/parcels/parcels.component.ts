@@ -13,6 +13,8 @@ export class ParcelsComponent implements OnInit {
   token: string = '';
   email: string = '';
   parcels: any;
+  sentParcels: any;
+  p: number = 1
   parcels$ = this.store.select(getParcels);
   filterString: string = '';
   constructor(
@@ -28,6 +30,9 @@ export class ParcelsComponent implements OnInit {
 
       this.parcels = data.filter((own) => {
         return own.receiver == this.email;
+      });
+      this.sentParcels = data.filter((own) => {
+        return own.sender == this.email;
       });
     });
   }

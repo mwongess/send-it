@@ -6,7 +6,7 @@ export interface Iparcel {
   sendername: string
   receiver?: string;
   receivername: string
-  weight: string
-  price: string
+  weight: number
+  price: number
   status?: string;
 }

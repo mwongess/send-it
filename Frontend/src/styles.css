@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 body{
+    background-color: #000000;
     font-family: 'Anek Telugu', sans-serif;
 }
 button{
