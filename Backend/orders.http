@@ -7,18 +7,18 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmMjY3MjYzLTkzNWEtNGRkMC05
     "name":"New Order",
     "sender":"amos@gmail.com",
     "sendername": "Amos",
-    "receiver":"amwongelah@gmail.com",
+    "receiver":"amosmwongelah@gmail.com",
     "receivername": "Mwongela",
     "destination": "Keru",
     "destination": "Keru",
-    "weight": 112,
-    "price": 1
+    "weight": "112",
+    "price": ""
 }
 
 ### UPDATE SPECIFIC ORDER(Status or Details)
-PUT http://localhost:4003/orders/update/:id
+PUT http://localhost:4003/orders/update/5764d336-77e1-481e-aed5-0af1dc2e942a
 Content-Type: application/json
-token: 
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmMjY3MjYzLTkzNWEtNGRkMC05MGEzLWU0ZTljNWM2ODZmNyIsIm5hbWUiOiJBbW9zIiwiZW1haWwiOiJhbW9zbXdvbmdlbGFoQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlzV2VsY29tZWQiOnRydWUsImlhdCI6MTY2MzU4NjM2MSwiZXhwIjoxNjYzNTg5OTYxfQ.XT0CqizJmq4yjTsHxpFw4Y7NJelChp0P--48_SGxDl8
 
 {
     "name":"Updated Order",
@@ -40,10 +40,11 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmMjY3MjYzLTkzNWEtNGRkMC05
 
 
 ### GET SPECIFIC ORDER
-GET http://localhost:4003/orders/:id
-token: 
+GET http://localhost:4003/orders/5764d336-77e1-481e-aed5-0af1dc2e942a
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmMjY3MjYzLTkzNWEtNGRkMC05MGEzLWU0ZTljNWM2ODZmNyIsIm5hbWUiOiJBbW9zIiwiZW1haWwiOiJhbW9zbXdvbmdlbGFoQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlzV2VsY29tZWQiOnRydWUsImlhdCI6MTY2MzU4MzkyOSwiZXhwIjoxNjYzNTg3NTI5fQ.j4_fwEDiM66hEsixaqF5VnmugoWJEjYgwAyMJPTxsAE
+
 
 
 ### SOFT DELETE
-DELETE http://localhost:4003/orders/:id
-token: 
+DELETE http://localhost:4003/orders/5764d336-77e1-481e-aed5-0af1dc2e942a
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmMjY3MjYzLTkzNWEtNGRkMC05MGEzLWU0ZTljNWM2ODZmNyIsIm5hbWUiOiJBbW9zIiwiZW1haWwiOiJhbW9zbXdvbmdlbGFoQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlzV2VsY29tZWQiOnRydWUsImlhdCI6MTY2MzU4MzkyOSwiZXhwIjoxNjYzNTg3NTI5fQ.j4_fwEDiM66hEsixaqF5VnmugoWJEjYgwAyMJPTxsAE
