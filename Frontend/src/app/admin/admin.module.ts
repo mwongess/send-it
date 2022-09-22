@@ -17,6 +17,7 @@ import { ParcelReducer } from '../shared/state/parcel.reducer';
 import { MoreDetailsComponent } from './more-details/more-details.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const adminRoutes: Routes = [
   {
@@ -73,6 +74,7 @@ const adminRoutes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
+    GooglePlaceModule,
     RouterModule.forChild(adminRoutes),
     ReactiveFormsModule,
     StoreModule.forFeature(

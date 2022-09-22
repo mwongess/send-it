@@ -3,11 +3,10 @@
   /* height: 10rem; */
   margin: 1.5rem;
   color: white;
-  
+
   border-radius: 5px;
 }
-.tables{
-  
+.tables {
   padding: 1rem;
 }
 .start {
@@ -72,7 +71,6 @@ th {
   font-size: 0.9rem;
   width: 23%;
 }
-
 
 th,
 td {
@@ -141,11 +139,11 @@ img {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom:0.5rem;
+  margin-bottom: 0.5rem;
   height: 3.5rem;
   border-radius: 5px 5px 0 0;
-  padding: 0!important;
-  opacity: .5;
+  padding: 0 !important;
+  opacity: 0.5;
   background-image: linear-gradient(to right, #00b09b, #96c93d);
 }
 .image img {
@@ -156,11 +154,12 @@ img {
   height: 2rem;
   width: 2rem;
 }
-.receivedsect{
+.receivedsect {
   background-image: linear-gradient(to left, #00b09b, #96c93d);
 }
-@media only screen and (max-width: 600px){
-  .table{
+@media only screen and (max-width: 600px) {
+  .table {
     overflow-x: scroll;
   }
+  
 }
