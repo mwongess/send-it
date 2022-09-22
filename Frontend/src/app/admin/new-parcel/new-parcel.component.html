@@ -27,11 +27,13 @@
           formControlName="receiver"
           email
         />
-        <input
+        <!-- DESTINATION -->
+        <input ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)"
           type="text"
           placeholder="Destination"
           formControlName="destination"
         />
+        <!--  -->
         <input
           type="number"
           placeholder="Weight (number)"
