@@ -7,6 +7,8 @@ export const OrderSchema = Joi.object({
   receiver: Joi.string().required().email(),
   receivername: Joi.string().required(),
   destination: Joi.string().required(),
+  lat: Joi.number().required(),
+  lng: Joi.number().required(),
   weight: Joi.number().required(),
   price: Joi.number().required(),
 });

@@ -4,6 +4,8 @@ interface Iorders {
   sender: string;
   receiver: string;
   destination: string;
+  lat: number;
+  lng: number;
   status: string;
   isDeleted: boolean;
 }
