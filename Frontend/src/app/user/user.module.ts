@@ -13,6 +13,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IntroSectionComponent } from './intro-section/intro-section.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GoogleMapsModule } from '@angular/google-maps';
+
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const userRoutes: Routes = [
   {
@@ -55,6 +58,8 @@ const userRoutes: Routes = [
   ],
   imports: [
     CommonModule,
+    GoogleMapsModule,
+    GooglePlaceModule,
     RouterModule.forChild(userRoutes),
     ReactiveFormsModule,
     StoreModule.forFeature(' parcel', ParcelReducer),

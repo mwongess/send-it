@@ -9,7 +9,11 @@
         <label for="Id">Tracking Id</label>
         <input type="text" formControlName="id" readonly />
         <label for="">Destination</label>
-        <input type="text" name="" d="" formControlName="destination" />
+         <input ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)"
+          type="text"
+          placeholder="Destination"
+          formControlName="destination"
+        />
         <label for="">Weight (Number)</label>
         <input type="number" formControlName="weight" placeholder="Weight" />
         <label for="">Price</label>
@@ -44,7 +48,21 @@
     </form>
   </div>
   <div class="destination">
-    <iframe
+     <google-map
+        height="470px"
+        width="100%"
+        [center]="center"
+        [zoom]="zoom"
+        (mapClick)="moveMap($event)"
+        (mapMousemove)="move($event)"
+      >
+        <map-marker
+          *ngFor="let markerPosition of markerPositions"
+          [position]="markerPosition"
+          [options]="markerOptions"
+        ></map-marker>
+      </google-map>
+    <!-- <iframe
       src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14634.320189204269!2d36.9397226170205!3d-0.4223653202520225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sthejitu!5e0!3m2!1sen!2ske!4v1662313838331!5m2!1sen!2ske"
       width="600"
       height="450"
@@ -52,6 +70,6 @@
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+    ></iframe> -->
   </div>
 </div>

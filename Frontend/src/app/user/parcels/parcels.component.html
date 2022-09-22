@@ -52,7 +52,7 @@
         ngClass="controls"
       ></pagination-controls>
     </table>
-    <div ngClass="noparcels" *appUnless="parcels.length != 0">
+    <div ngClass="noparcels" *appUnless="sentParcels.length != 0">
       <div ngClass="parc">
         <h3>Get started by sending parcels.</h3>
       </div>
@@ -116,7 +116,7 @@
   </table>
   <div ngClass="noparcels" *appUnless="parcels.length != 0">
     <div ngClass="parc">
-      <h3>You have no received orders</h3>
+      <h3>No received orders to display here.</h3>
     </div>
   </div>
   </div>

@@ -42,10 +42,7 @@ export class MoreDetailsComponent implements OnInit {
       this.order = data;
       this.latitude = parseFloat(this.order.lat);
       this.longitude =parseFloat(this.order.lon);
-      // this.longitude = 37.87999999999999;
-      // this.latitude = -1.12;
       this.markerPositions.push({ lat: this.latitude, lng: this.longitude });
-      console.log(this.markerPositions)
     });
   }
 

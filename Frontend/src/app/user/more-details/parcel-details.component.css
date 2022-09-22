@@ -33,7 +33,7 @@ h3{
     font-weight: initial;
 }
 .map{
-
+    overflow-x: hidden;
 }
 .map iframe{
     opacity: .6;

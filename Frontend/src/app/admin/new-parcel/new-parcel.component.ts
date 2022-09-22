@@ -16,11 +16,10 @@ export class NewParcelComponent implements OnInit {
     lat: 0,
     lng: 0,
   };
+  detailedParcel: any;
   constructor(private store: Store, private router: Router) {}
 
   ngOnInit(): void {
-    this.location.lat = localStorage.getItem('lat') as unknown as number;
-    this.location.lng = localStorage.getItem('lng') as unknown as number;
     this.newParcelForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       sender: new FormControl(null, Validators.required),
@@ -30,8 +29,6 @@ export class NewParcelComponent implements OnInit {
       weight: new FormControl(null, Validators.required),
       price: new FormControl(null, Validators.required),
       destination: new FormControl(null, Validators.required),
-      lat: new FormControl(this.location.lat),
-      lng: new FormControl(this.location.lng),
     });
 
     this.newParcelForm.get('weight')?.valueChanges.subscribe((res) => {
@@ -39,13 +36,16 @@ export class NewParcelComponent implements OnInit {
     });
   }
   AddressChange(adress: any) {
-    localStorage.setItem('lat', adress.geometry.location.lat());
-    localStorage.setItem('lng', adress.geometry.location.lng());
+    this.location.lat = adress.geometry.location.lat();
+    this.location.lng = adress.geometry.location.lng();
   }
   onSubmit() {
-    this.store.dispatch(
-      Actions.ADD_PARCEL({ newParcel: this.newParcelForm.value })
-    );
+    this.detailedParcel = {
+      ...this.newParcelForm.value,
+      lat: this.location.lat,
+      lng: this.location.lng,
+    };
+    this.store.dispatch(Actions.ADD_PARCEL({ newParcel: this.detailedParcel }));
     this.store.dispatch(Actions.LOAD_PARCELS());
     this.router.navigate(['admin/dashboard/parcels']);
   }
