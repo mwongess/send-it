@@ -5,7 +5,8 @@ import { v4 as uid } from "uuid";
 import bcrypt from "bcrypt";
 import { UserSchema, UserSchema2 } from "../Helpers/userValidator";
 import { IUser } from "../Model/users.model";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken"
 import Connection from "../Helpers/db.helper";
 const db = new Connection();
 
