@@ -8,14 +8,13 @@ import {
 } from "../Controllers/orderController";
 import { verifyToken } from "../Middlewares/verifyToken";
 
-const orouter = Router();
+const o_router = Router();
 
-//+++++++++ ORDERS +++++++++++++++++
-orouter
+o_router
   .get("/", verifyToken, getOrders)
   .get("/:id", verifyToken, getOrder)
   .post("/", verifyToken, newOrder)
   .put("/update/:id", verifyToken, updateOrder)
   .delete("/:id", verifyToken, deleteOrder);
 
-export default orouter;
+export default o_router;
