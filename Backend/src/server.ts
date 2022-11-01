@@ -1,17 +1,19 @@
 import express, { NextFunction, Request, Response,json } from 'express'
-import orouter from './Routes/order.routes'
-import urouter from './Routes/user.routes'
-import cors from "cors";
+import o_router from './Routes/order.routes'
+import u_router from './Routes/user.routes'
 import startServer from './lib/boot';
+import cors from "cors";
+
 const app= express()
 
 app.use(json())
 app.use(cors());
 // Users
-app.use('/user', urouter)
+app.use('/user', u_router)
 
 //Orders
-app.use('/orders', orouter)
+app.use('/orders', o_router)
+
 app.use((err:Error, req:Request, res:Response, next:NextFunction)=>{
     res.json({Error:err.message})
 })
