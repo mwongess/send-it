@@ -8,10 +8,10 @@ const orouter = Router()
 
 //+++++++++ ORDERS +++++++++++++++++ 
 orouter.get('/',verifyToken, getOrders)
-orouter.get('/:id',verifyToken,getOrder)
-orouter.post('/', verifyToken, newOrder)
-orouter.put('/update/:id',verifyToken, updateOrder)
-orouter.delete('/:id', verifyToken,deleteOrder)
+.get('/:id',verifyToken,getOrder)
+.post('/', verifyToken, newOrder)
+.put('/update/:id',verifyToken, updateOrder)
+.delete('/:id', verifyToken,deleteOrder)
 
 
 export default orouter
