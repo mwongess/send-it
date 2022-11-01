@@ -6,7 +6,7 @@ const urouter = Router();
 
 //+++++++++ USER ROUTES +++++++++++++++++ 
 urouter.post('/signup', newUser)
-urouter.post('/login', loginUser)
-urouter.get("/check", verifyToken, checkUser);
+.post('/login', loginUser)
+.get("/check", verifyToken, checkUser);
 
 export default urouter;
